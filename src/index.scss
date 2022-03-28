@@ -1,0 +1,37 @@
+.dots-custom {
+  vertical-align: middle;
+  margin: auto;
+  margin-top: 16px;
+  padding: 0;
+  border-radius: 40px;
+  width: 100%;
+  text-align: center;
+  li button {
+    border: none;
+    background: #1c2126;
+    color: transparent;
+    cursor: pointer;
+    display: block;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0 4px;
+  }
+  li {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0;
+  }
+  li.slick-active button {
+    background-color: #3ecf00;
+  }
+
+  //   img {
+  //     border: 5px solid #fff;
+  //     display: block;
+  //     margin: auto;
+  //   }
+}
