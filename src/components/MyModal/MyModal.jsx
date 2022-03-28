@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import _debounce from "lodash/debounce";
-import { XIcon, PlayIcon } from "@heroicons/react/outline";
+import { XIcon } from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
