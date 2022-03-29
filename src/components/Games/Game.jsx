@@ -68,9 +68,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "flex-start",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   justifyContent: "flex-start",
+    // },
   },
 }));
 

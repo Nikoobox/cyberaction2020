@@ -12,15 +12,15 @@ const useStyles = makeStyles((theme) => ({
   playButtonWrapper: {
     // width: "100%",
     "& .play-button": {
+      // -webkit-border-radius: "0 0 100% 0",
       display: "flex",
       backgroundColor: COLORS.BLACK_MAIN,
       borderRadius: "24px",
-      outline: `1px solid ${COLORS.WHITE_MAIN}`,
-      outlineOffset: "-4px",
+      border: `1px solid ${COLORS.WHITE_MAIN}`,
+      // outline: `1px solid ${COLORS.WHITE_MAIN}`,
+      // outlineOffset: "-4px",
       padding: (props) =>
-        props.horizontalPadding
-          ? `10px ${props.horizontalPadding}`
-          : "10px 16px",
+        props.horizontalPadding ? `8px ${props.horizontalPadding}` : "8px 16px",
       color: COLORS.WHITE_MAIN,
       // fontSize: "18px",
       // lineHeight: "24px",
