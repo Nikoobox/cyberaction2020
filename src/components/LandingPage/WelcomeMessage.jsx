@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down("sm")]: {
         fontSize: "24px",
         lineHeight: "32px",
-        padding: "8px 16px",
+        padding: "6px 16px",
       },
     },
   },
