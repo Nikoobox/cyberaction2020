@@ -44,9 +44,9 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .buttonWrapper": {
       backgroundColor: COLORS.RED_MAIN,
-      outline: "1px solid #fff",
-      outlineOffset: "-4px",
-      padding: "10px 16px",
+      // outline: "1px solid #fff",
+      // outlineOffset: "-4px",
+      padding: "8px 16px",
       borderRadius: "24px",
       color: COLORS.WHITE_MAIN,
       display: "block",
@@ -54,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: "24px",
       fontWeight: 300,
       marginTop: "16px",
-
+      border: `${COLORS.RED_MAIN} solid 4px`,
+      boxShadow: "0px 0px 0px 1px #fff inset",
       "&:hover": {
         backgroundColor: COLORS.RED_MAIN,
       },
