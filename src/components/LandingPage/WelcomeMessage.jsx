@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
+import React from "react";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -44,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
     },
     "& .buttonWrapper": {
+      transform: "translateZ(0)",
       backgroundColor: COLORS.RED_MAIN,
       borderRadius: "24px",
       outline: "1px solid #fff",
@@ -69,17 +69,6 @@ const useStyles = makeStyles((theme) => ({
 
 const WelcomeMessage = () => {
   const classes = useStyles();
-  // const [isFinishedTyping, setIsFinishedTyping] = useState(false);
-
-  // const { text } = useTypewriter({
-  //   words: ["Уникальный командный шутер"],
-  //   loop: 1,
-  //   typeSpeed: 60,
-
-  //   onLoopDone: () => {
-  //     setTimeout(() => setIsFinishedTyping(true), 3000);
-  //   },
-  // });
 
   return (
     <Container className={classes.root}>
