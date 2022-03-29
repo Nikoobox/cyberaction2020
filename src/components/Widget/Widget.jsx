@@ -65,8 +65,12 @@ const Widget = () => {
         FabProps={{
           style: {
             backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.RED_MAIN,
-            outline: `1px solid ${COLORS.WHITE_MAIN}`,
-            outlineOffset: "-5px",
+            // outline: `1px solid ${COLORS.WHITE_MAIN}`,
+            // outlineOffset: "-5px",
+            border: isOpen
+              ? `${COLORS.GREY_CLASSIC} solid 4px`
+              : `${COLORS.RED_MAIN} solid 4px`,
+            boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 1.5px ${COLORS.WHITE_MAIN} inset`,
             borderRadius: "50%",
           },
         }}
@@ -94,9 +98,11 @@ const Widget = () => {
                 height: "56px",
                 backgroundColor: COLORS.GREY_MAIN,
                 color: COLORS.GREEN_MAIN,
-                outline: `1px solid ${COLORS.GREEN_MAIN}`,
-                outlineOffset: "-4px",
+                // outline: `1px solid ${COLORS.GREEN_MAIN}`,
+                // outlineOffset: "-4px",
                 borderRadius: "50%",
+                border: `${COLORS.GREY_MAIN} solid 4px`,
+                boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 1.5px ${COLORS.GREEN_MAIN} inset`,
               },
             }}
             href={action.link}
