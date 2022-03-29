@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
     padding: "8px",
     width: "64px",
     height: "64px",
-    borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     outline: `1px solid ${COLORS.WHITE_MAIN}`,
     outlineOffset: "-4px",
+    borderRadius: "50%",
     "& a:-webkit-any-link": {
       textDecoration: "none",
       color: COLORS.WHITE_MAIN,
