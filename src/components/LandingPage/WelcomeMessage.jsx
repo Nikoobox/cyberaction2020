@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
     },
     "& .buttonWrapper": {
-      transform: "translateZ(0)",
+      // transform: "translateZ(0)",
       backgroundColor: COLORS.RED_MAIN,
       borderRadius: "24px",
       outline: "1px solid #fff",
@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: "24px",
       fontWeight: 300,
       marginTop: "16px",
+      WebkitAppearance: "none",
+      // "& :-webkit-appearance": {
+      //   textDecoration: "none",
+      //   color: COLORS.WHITE_MAIN,
+      // },
       "&:hover": {
         backgroundColor: COLORS.RED_MAIN,
       },
