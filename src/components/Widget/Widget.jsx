@@ -67,6 +67,7 @@ const Widget = () => {
             backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.RED_MAIN,
             outline: `1px solid ${COLORS.WHITE_MAIN}`,
             outlineOffset: "-5px",
+            borderRadius: "50%",
           },
         }}
         ariaLabel="SpeedDial Widget"
@@ -95,6 +96,7 @@ const Widget = () => {
                 color: COLORS.GREEN_MAIN,
                 outline: `1px solid ${COLORS.GREEN_MAIN}`,
                 outlineOffset: "-4px",
+                borderRadius: "50%",
               },
             }}
             href={action.link}
