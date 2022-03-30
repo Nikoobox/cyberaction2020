@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
       fontSize: "24px",
       lineHeight: "32px",
-      fontWeight: 600,
+      fontWeight: 500,
     },
   },
   drawerItemWrapper: {
@@ -103,7 +103,6 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerItem: {
     color: COLORS.WHITE_MAIN,
-    // backgroundColor: "yellow",
     "& .MuiListItemText-primary": {
       fontSize: "24px",
       lineHeight: "32px",
@@ -114,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiDivider-root": {
       backgroundColor: COLORS.GREY_CLASSIC,
       marginLeft: "24px",
-      marginRight: "16px",
+      marginRight: "24px",
     },
   },
   iconButton: {
@@ -142,7 +141,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   callContainer: {
-    padding: "40px 16px 16px 32px",
+    padding: "16px",
+    paddingLeft: "32px",
     "&:hover": {
       backgroundColor: COLORS.GREY_MAIN,
     },
@@ -158,9 +158,10 @@ const useStyles = makeStyles((theme) => ({
   },
   socialContainer: {
     display: "flex",
-    padding: "40px 16px 16px 32px",
+    padding: "24px",
+    paddingLeft: "32px",
     "& .social-icon-box": {
-      marginRight: "16px",
+      marginRight: "24px",
       height: 40,
       width: 40,
       "& svg": {
