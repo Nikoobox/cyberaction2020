@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     padding: "0",
-    marginTop: "50%",
-    transform: "translateY(-50%)",
+    // marginTop: "50%",
+    // transform: "translateY(-50%)",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
       height: "auto",

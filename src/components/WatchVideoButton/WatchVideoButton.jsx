@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       // fontSize: "18px",
       // lineHeight: "24px",
       fontWeight: 300,
-      marginTop: "16px",
+      marginTop: (props) => (props.topMargin ? "24px" : "16px"),
       [theme.breakpoints.down("sm")]: {
         marginLeft: "auto",
         marginRight: "auto",
@@ -51,8 +51,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WatchVideoButton = ({ text, icon, handleClick, horizontalPadding }) => {
-  const classes = useStyles({ horizontalPadding });
+const WatchVideoButton = ({
+  text,
+  icon,
+  handleClick,
+  horizontalPadding,
+  topMargin,
+}) => {
+  const classes = useStyles({ horizontalPadding, topMargin });
 
   return (
     <div className={classes.playButtonWrapper}>

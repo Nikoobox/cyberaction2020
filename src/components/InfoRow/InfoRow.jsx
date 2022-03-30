@@ -8,9 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: (props) => (props.color ? props.color : COLORS.WHITE_MAIN),
     display: "flex",
-    flexWrap: "wrap",
     marginBottom: "8px",
-    // fontWeight: 300,
+    flexWrap: "nowrap",
     fontSize: "18px",
     "& .circle": {
       backgroundColor: COLORS.GREEN_MAIN,
@@ -21,13 +20,18 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "8px",
       height: "8px",
       width: "8px",
+      minWidth: "8px",
       borderRadius: "50%",
+      [theme.breakpoints.down("sm")]: {
+        marginRight: "16px",
+      },
     },
     "& .left": {
       fontWeight: 300,
       paddingRight: `8px`,
       fontSize: "18px",
       lineHeight: "24px",
+      flex: (props) => (props.isleftAligned ? "initial" : 1),
     },
     "& .right": {
       fontSize: "18px",
@@ -39,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InfoRow = ({ data, color, isCircleShown }) => {
-  const classes = useStyles({ color });
+const InfoRow = ({ data, color, isCircleShown, isleftAligned }) => {
+  const classes = useStyles({ color, isleftAligned });
   const [left, right] = data;
-  // console.log("color: ", color);
+
   return (
     <div className={classes.root}>
       {isCircleShown && <div className="circle" />}

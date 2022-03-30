@@ -97,9 +97,6 @@ const useStyles = makeStyles((theme) => ({
   drawerItemWrapper: {
     padding: "16px",
     paddingLeft: "32px",
-    "&:hover": {
-      backgroundColor: COLORS.GREY_MAIN,
-    },
   },
   drawerItem: {
     color: COLORS.WHITE_MAIN,
@@ -143,22 +140,23 @@ const useStyles = makeStyles((theme) => ({
   callContainer: {
     padding: "16px",
     paddingLeft: "32px",
-    "&:hover": {
-      backgroundColor: COLORS.GREY_MAIN,
+    "& a:-webkit-any-link": {
+      fontSize: "18px",
+      lineHeight: "24px",
     },
     "& .call-row": {
       display: "flex",
       "& .phone-icon": {
         marginRight: "8px",
-        height: 32,
-        width: 32,
+        height: 24,
+        width: 24,
         fill: "none",
       },
     },
   },
   socialContainer: {
     display: "flex",
-    padding: "24px",
+    padding: "16px",
     paddingLeft: "32px",
     "& .social-icon-box": {
       marginRight: "24px",
@@ -284,7 +282,7 @@ const Navbar = () => {
               width: "100%",
               display: "flex",
               justifyContent: "flex-end",
-              padding: isXS ? "8px 16px 4px" : "32px 24px 16px 16px",
+              padding: isXS ? "8px 16px 0" : "32px 24px 16px 16px",
             }}
           >
             <IconButton

@@ -24,7 +24,7 @@ const LandingPage = () => {
 
   return (
     <div className={classes.root}>
-      <video autoPlay muted className={classes.videoWrapper}>
+      <video autoPlay muted loop className={classes.videoWrapper}>
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
 

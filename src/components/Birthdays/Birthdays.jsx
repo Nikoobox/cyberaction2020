@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "18px",
       lineHeight: "24px",
       marginTop: "24px",
-      marginBottom: "8px",
+      marginBottom: "16px",
     },
   },
   phoneWrapper: {
@@ -169,7 +169,7 @@ const Birthdays = () => {
               </div>
 
               {BDAY_DATA.map((row, idx) => {
-                return <InfoRow data={row} key={idx} />;
+                return <InfoRow data={row} key={idx} isleftAligned />;
               })}
               <Typography className={classes.subHeader}>
                 В стоимость входит:
@@ -182,7 +182,8 @@ const Birthdays = () => {
                 text="Смотреть Ролик"
                 handleClick={handleClick}
                 icon={PlayIcon}
-                horizontalPadding={"32px"}
+                horizontalPadding="32px"
+                topMargin="24px"
               />
 
               <Typography className={classes.subHeader}>
@@ -206,7 +207,12 @@ const Birthdays = () => {
               <Divider variant="fullWidth" className={classes.divider} />
               {BDAY_DATA_EXTRA.map((row, idx) => {
                 return (
-                  <InfoRow data={row} key={idx} color={COLORS.GREY_CLASSIC} />
+                  <InfoRow
+                    data={row}
+                    key={idx}
+                    color={COLORS.GREY_CLASSIC}
+                    isleftAligned
+                  />
                 );
               })}
             </div>

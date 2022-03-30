@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
     display: "flex",
     justifyContent: "center",
-
+    outline: 0,
     "& .MuiCardMedia-root": {
       height: "100%",
       width: "auto",
@@ -74,6 +74,7 @@ const MyModal = ({ open, onClose, content }) => {
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
+      disableAutoFocus
       open={open}
       onClose={onClose}
       closeAfterTransition
