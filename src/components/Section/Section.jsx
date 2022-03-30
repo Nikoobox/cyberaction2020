@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTypography-root": {
       fontWeight: 300,
       color: COLORS.WHITE_MAIN,
+      fontSize: "48px",
+      lineHeight: "56px",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "40px",
+        lineHeight: "48px",
+        textAlign: "center",
+      },
     },
   },
 }));
@@ -26,7 +33,7 @@ const Section = ({ title, content, children, anchor, noVerticalPadding }) => {
   return (
     <Container className={classes.root} id={anchor}>
       <div className={classes.titleWrapper}>
-        <Typography variant="h3">{title}</Typography>
+        <Typography>{title}</Typography>
       </div>
 
       {content && content}

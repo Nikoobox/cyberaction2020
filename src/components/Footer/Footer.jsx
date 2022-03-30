@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rowWrapper: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "nowrap",
     lineHeight: "32px",
     marginBottom: "8px",
   },

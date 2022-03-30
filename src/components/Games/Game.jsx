@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     height: "300px",
     borderRadius: "16px",
     overflow: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      height: "250px",
+    },
   },
   image: {
     width: "100%",
