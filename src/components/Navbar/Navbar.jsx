@@ -160,8 +160,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "32px",
     "& .social-icon-box": {
       marginRight: "24px",
-      height: 40,
-      width: 40,
+      height: 32,
+      width: 32,
       "& svg": {
         width: "100%",
         height: "100%",
