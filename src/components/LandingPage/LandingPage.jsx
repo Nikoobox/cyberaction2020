@@ -26,14 +26,13 @@ const LandingPage = () => {
     <div className={classes.root}>
       <video
         className={classes.videoWrapper}
-        src={backgroundVideoRect}
         autoPlay
         loop
-        controls=""
-        type="video/mp4"
-      />
-      {/* <source src={backgroundVideoRect} type="video/mp4" />
-      </video> */}
+        muted
+        // controls=""
+      >
+        <source src={backgroundVideoRect} type="video/mp4" />
+      </video>
 
       <WelcomeMessage />
     </div>
