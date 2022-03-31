@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: `56px`,
       lineHeight: `64px`,
       fontWeight: 600,
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "40px",
+        lineHeight: "48px",
+        // padding: "6px 16px",
+      },
     },
   },
   body: {
@@ -35,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: `56px`,
       lineHeight: `64px`,
       fontWeight: 300,
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "40px",
+        lineHeight: "48px",
+        padding: "6px 16px",
+      },
     },
   },
   buttonWrapper: {
