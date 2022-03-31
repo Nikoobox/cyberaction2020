@@ -29,7 +29,7 @@ const LandingPage = () => {
         autoPlay
         loop
         muted
-        playsInLine
+        playsInline
         // controls=""
       >
         <source src={backgroundVideoRect} type="video/mp4" />
