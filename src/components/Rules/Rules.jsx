@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
+import { defineCustomElements } from "shooting-stars/dist/loader";
 
 import Section from "../Section/Section";
 import { RULES_DATA } from "../DataImports/index";
@@ -15,9 +16,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Rules = () => {
   const classes = useStyles();
-
+  defineCustomElements(window);
   return (
     <Section title="Цены и Правила" anchor="price">
+      {/* <shooting-stars
+        image="./star.png"
+        height="'10px'"
+        width="'10px'"
+        min-speed="1"
+        max-speed="5"
+        num="10"
+      ></shooting-stars> */}
       <Grid container rowSpacing={8} columnSpacing={4}>
         {RULES_DATA.map((ruleData, idx) => {
           return (

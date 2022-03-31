@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 import { COLORS } from "../../theme";
 // import backgroundVideoRect from "../../media/back_square.mp4";
-import backgroundVideoRect from "../../media/back_rect_logo.mp4";
+import backgroundVideoRect from "../../media/back_rect.mp4";
 // import backgroundVideoRect from "../../media/back_bw_square.mov";
 import WelcomeMessage from "./WelcomeMessage";
 import { colors } from "@mui/material";
@@ -24,7 +24,7 @@ const LandingPage = () => {
 
   return (
     <div className={classes.root}>
-      <video autoPlay muted loop className={classes.videoWrapper}>
+      <video autoPlay defaultMuted loop className={classes.videoWrapper}>
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
 
