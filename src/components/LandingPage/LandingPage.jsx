@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 
 import { COLORS } from "../../theme";
@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
 
 const LandingPage = () => {
   const classes = useStyles();
+  const [isMuted, setIsMuted] = useState(true);
+  const toggleVideoSound = () => {
+    setIsMuted(!isMuted);
+  };
 
   return (
     <div className={classes.root}>
@@ -28,14 +32,14 @@ const LandingPage = () => {
         className={classes.videoWrapper}
         autoPlay
         loop
-        muted
+        muted={isMuted ? true : false}
         playsInline
         // controls=""
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
 
-      <WelcomeMessage />
+      <WelcomeMessage toggleVideoSound={toggleVideoSound} />
     </div>
   );
 };

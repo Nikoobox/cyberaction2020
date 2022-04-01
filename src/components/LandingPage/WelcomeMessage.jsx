@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ toggleVideoSound }) => {
   const classes = useStyles();
 
   return (
@@ -93,7 +93,9 @@ const WelcomeMessage = () => {
           Уникальный командный шутер
         </Typography>
         <div className={classes.buttonWrapper}>
-          <Button className="buttonWrapper">Забронировать</Button>
+          <Button onClick={toggleVideoSound} className="buttonWrapper">
+            Забронировать
+          </Button>
         </div>
       </div>
     </Container>
