@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down("sm")]: {
         fontSize: "40px",
         lineHeight: "48px",
-        // padding: "6px 16px",
       },
     },
   },
@@ -35,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
     color: COLORS.WHITE_MAIN,
     "&.MuiTypography-root": {
       marginTop: "8px",
-      // fontSize: `24px`,
-      // lineHeight: `32px`,
       fontSize: `56px`,
       lineHeight: `64px`,
       fontWeight: 300,
@@ -54,8 +51,6 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .buttonWrapper": {
       backgroundColor: COLORS.RED_MAIN,
-      // outline: "1px solid #fff",
-      // outlineOffset: "-4px",
       padding: "8px 16px",
       borderRadius: "24px",
       color: COLORS.WHITE_MAIN,
@@ -92,9 +87,42 @@ const WelcomeMessage = ({ toggleVideoSound }) => {
           {!isFinishedTyping && <Cursor />} */}
           Уникальный командный шутер
         </Typography>
-        <div className={classes.buttonWrapper}>
+        {/* <div className={classes.buttonWrapper}>
           <Button className="buttonWrapper">Забронировать</Button>
-        </div>
+        </div> */}
+        {/* <button type="button" class="btn btn-book btn-lg">
+          <a class="ms_booking" href="https://w327499.yclients.com/widgetJS">
+            Забронировать
+          </a>
+        </button> */}
+        <a
+          className=""
+          style={{
+            marginTop: "24px",
+            backgroundColor: "white",
+            padding: "16px",
+          }}
+          href="https://w327499.yclients.com/widgetJS"
+        >
+          Забронировать
+        </a>
+        {/* <a
+          href="/"
+          class="ms_booking"
+          data-url="https://w327499.yclients.com/widgetJS"
+        >
+          TEST
+        </a> */}
+        {/* <iframe
+          height="545px"
+          width="320px"
+          scrolling="no"
+          frameborder="0"
+          allowtransparency="true"
+          id="ms_booking_iframe"
+          // src="https://w1234.yclients.com/"
+          src="https://w327499.yclients.com/"
+        ></iframe> */}
       </div>
     </Container>
   );

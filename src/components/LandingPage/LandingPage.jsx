@@ -55,7 +55,6 @@ const LandingPage = () => {
         loop
         muted={isMuted ? true : false}
         playsInline
-        // controls=""
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
