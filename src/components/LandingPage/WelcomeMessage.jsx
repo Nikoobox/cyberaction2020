@@ -93,9 +93,7 @@ const WelcomeMessage = ({ toggleVideoSound }) => {
           Уникальный командный шутер
         </Typography>
         <div className={classes.buttonWrapper}>
-          <Button onClick={toggleVideoSound} className="buttonWrapper">
-            Забронировать
-          </Button>
+          <Button className="buttonWrapper">Забронировать</Button>
         </div>
       </div>
     </Container>
