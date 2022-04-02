@@ -4,6 +4,7 @@ import {
   MailIcon,
   DotsVerticalIcon,
   XIcon,
+  CalendarIcon,
 } from "@heroicons/react/outline";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -27,6 +28,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const actions = [
+  {
+    icon: (
+      <SvgIcon
+        component={CalendarIcon}
+        viewBox="0 0 24 24"
+        className="item-icon"
+      />
+    ),
+    name: "Забронировать",
+    operation: "booking",
+    link: "//w327499.yclients.com/widgetJS",
+    isBookingClass: "ms_booking",
+  },
   {
     icon: (
       <SvgIcon
@@ -112,12 +126,11 @@ const Widget = () => {
         open={isOpen}
       >
         {actions.map((action) => {
-          // const icon = (
-          //   <span className={classes.speedDialIcon}>{action.icon}</span>
-          // );
           return (
             <SpeedDialAction
-              className={classes.speedDialItem}
+              className={`${classes.speedDialItem} ${
+                action.isBookingClass ? action.isBookingClass : ""
+              }`}
               key={action.name}
               icon={action.icon}
               tooltipTitle={action.name}
@@ -129,9 +142,6 @@ const Widget = () => {
                   height: "56px",
                   backgroundColor: COLORS.GREY_MAIN,
                   color: COLORS.GREEN_MAIN,
-                  // fill: "none",
-                  // outline: `1px solid ${COLORS.GREEN_MAIN}`,
-                  // outlineOffset: "-4px",
                   borderRadius: "50%",
                   border: `${COLORS.GREY_MAIN} solid 4px`,
                   boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${COLORS.GREEN_MAIN} inset`,

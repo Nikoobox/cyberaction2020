@@ -8,7 +8,8 @@ import { COLORS } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: `260px`,
+    height: "100%",
+    // minHeight: `260px`,
     padding: `16px`,
     borderRadius: "24px",
     border: `2px solid ${COLORS.WHITE_MAIN}`,
