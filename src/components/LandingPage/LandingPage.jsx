@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     objectFit: "cover",
+    transition: "all 400ms ease 0ms",
   },
   soundButtonWrapper: {
     position: "absolute",
@@ -40,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
 
 const LandingPage = () => {
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const classes = useStyles({ isXS });
   const [isMuted, setIsMuted] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const classes = useStyles({ isXS, isVideoLoaded });
 
   const toggleVideoSound = () => {
     setIsMuted(!isMuted);
@@ -65,9 +66,7 @@ const LandingPage = () => {
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
-
       <WelcomeMessage toggleVideoSound={toggleVideoSound} />
-
       <div className={classes.soundButtonWrapper}>
         <Button
           onClick={toggleVideoSound}
