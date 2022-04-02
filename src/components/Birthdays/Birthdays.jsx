@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
 import { makeStyles } from "@mui/styles";
@@ -139,6 +142,11 @@ const Birthdays = () => {
 
   const classes = useStyles();
 
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
+
   const handleClick = () => {
     setOpen(!open);
   };
@@ -153,7 +161,13 @@ const Birthdays = () => {
 
   return (
     <>
-      <div className={classes.root}>
+      <motion.div
+        className={classes.root}
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView && { opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <Section title="Дни Рождения" anchor="birthdays">
           <div className={classes.contentWrapper}>
             <div className={classes.bdayInfoWrapper}>
@@ -222,7 +236,7 @@ const Birthdays = () => {
             </div>
           </div>
         </Section>
-      </div>
+      </motion.div>
 
       <MyModal
         open={open}

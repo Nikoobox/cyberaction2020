@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { PlusIcon, QuestionMarkCircleIcon } from "@heroicons/react/outline";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import { makeStyles } from "@mui/styles";
 import Grow from "@mui/material/Grow";
 import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
-import { PlusIcon, QuestionMarkCircleIcon } from "@heroicons/react/outline";
 
 import { COLORS } from "../../theme";
 
@@ -50,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
 const QuestionAnswer = ({ row }) => {
   const classes = useStyles();
   const [isShown, setIsShown] = useState(false);
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
   const [question, answer] = row;
 
   const handleClick = () => {
@@ -63,7 +70,13 @@ const QuestionAnswer = ({ row }) => {
   };
 
   return (
-    <div className={classes.questionAnswer}>
+    <motion.div
+      className={classes.questionAnswer}
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView && { opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={classes.questionRow} onClick={handleClick}>
         <SvgIcon
           component={QuestionMarkCircleIcon}
@@ -80,7 +93,7 @@ const QuestionAnswer = ({ row }) => {
       >
         <Typography className={classes.answer}>{answer}</Typography>
       </Grow>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { PlayIcon } from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -93,6 +95,11 @@ const Game = ({ name, isNew, description, video, pictures, handleClick }) => {
   const classes = useStyles();
   const [is3Rows, setIs3Rows] = useState(true);
 
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (!is3Rows) {
@@ -111,7 +118,13 @@ const Game = ({ name, isNew, description, video, pictures, handleClick }) => {
   });
 
   return (
-    <div className={classes.root}>
+    <motion.div
+      className={classes.root}
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView && { opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={classes.sliderWrapper}>
         <Slider {...settings}>{images}</Slider>
       </div>
@@ -133,7 +146,7 @@ const Game = ({ name, isNew, description, video, pictures, handleClick }) => {
           horizontalPadding="56px"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

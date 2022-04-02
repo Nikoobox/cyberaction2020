@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -46,9 +48,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Card = ({ header, headerIcon, rows }) => {
   const classes = useStyles();
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
 
   return (
-    <div className={classes.root}>
+    <motion.div
+      className={classes.root}
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView && { opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={`${classes.row} ${classes.headerRow}`}>
         <SvgIcon
           component={headerIcon}
@@ -61,7 +73,7 @@ const Card = ({ header, headerIcon, rows }) => {
       {rows.map((row, idx) => (
         <InfoRow data={row} key={idx} />
       ))}
-    </div>
+    </motion.div>
   );
 };
 

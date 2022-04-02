@@ -84,7 +84,7 @@ const Widget = () => {
         transform: "translateZ(0px)",
         flexGrow: 1,
         position: "fixed",
-        bottom: isXS ? 16 : 24,
+        bottom: isXS ? 10 : 24,
         right: isXS ? 0 : 24,
         zIndex: 2,
       }}
