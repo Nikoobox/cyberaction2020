@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+// import { useInView } from "react-intersection-observer";
+
 import { makeStyles } from "@mui/styles";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
@@ -100,28 +101,33 @@ const WelcomeMessage = () => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root}>
-      <div className={classes.messageContainer}>
-        <Typography className={classes.header}>
-          Первая VR Арена в Самаре
-        </Typography>
-        <Typography className={classes.body}>
-          Уникальный командный шутер
-        </Typography>
-        {/* <div className={classes.buttonWrapper}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
+    >
+      <Container className={classes.root}>
+        <div className={classes.messageContainer}>
+          <Typography className={classes.header}>
+            Первая VR Арена в Самаре
+          </Typography>
+          <Typography className={classes.body}>
+            Уникальный командный шутер
+          </Typography>
+          {/* <div className={classes.buttonWrapper}>
           <Button className="buttonWrapper">Забронировать</Button>
         </div> */}
-        {/* <button type="button" className="btn btn-book btn-lg">
+          {/* <button type="button" className="btn btn-book btn-lg">
           <a class="ms_booking" href="https://w327499.yclients.com/widgetJS">
             Забронировать
           </a>
         </button> */}
-        <div className={classes.buttonWrapper}>
-          <a className="ms_booking" href="//w327499.yclients.com/widgetJS">
-            Забронировать
-          </a>
-        </div>
-        {/* <iframe
+          <div className={classes.buttonWrapper}>
+            <a className="ms_booking" href="//w327499.yclients.com/widgetJS">
+              Забронировать
+            </a>
+          </div>
+          {/* <iframe
           height="545px"
           width="320px"
           scrolling="no"
@@ -131,8 +137,9 @@ const WelcomeMessage = () => {
           // src="https://w1234.yclients.com/"
           src="https://w327499.yclients.com/"
         ></iframe> */}
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Slider from "react-slick";
+import { makeStyles } from "@mui/styles";
 import Section from "../Section/Section";
 import { IMAGES } from "../DataImports/index";
 
@@ -38,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Gallery = () => {
   const classes = useStyles();
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
 
   const settings = {
     dots: true,
@@ -88,9 +94,15 @@ const Gallery = () => {
 
   return (
     <Section title="Галерея" anchor="gallery">
-      <div className={classes.sliderWrapper}>
+      <motion.div
+        className={classes.sliderWrapper}
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView && { opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <Slider {...settings}>{images}</Slider>
-      </div>
+      </motion.div>
     </Section>
   );
 };

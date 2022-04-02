@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
-import Typography from "@mui/material/Typography";
-import SvgIcon from "@mui/material/SvgIcon";
-import Button from "@mui/material/Button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   PhoneIcon,
   CalendarIcon,
   LocationMarkerIcon,
   MailIcon,
 } from "@heroicons/react/outline";
-
 import { FaTelegramPlane, FaVk } from "react-icons/fa";
 import moment from "moment";
+
+import { makeStyles } from "@mui/styles";
+import Typography from "@mui/material/Typography";
+import SvgIcon from "@mui/material/SvgIcon";
+import Button from "@mui/material/Button";
+
 import nsLogo from "../../media/images/ns_logo_mini.png";
 import { COLORS } from "../../theme";
 import Section from "../Section/Section";
@@ -136,12 +139,22 @@ const Footer = () => {
   const classes = useStyles();
   const todayDate = new Date();
   const [open, setOpen] = useState(false);
+  const { ref, inView } = useInView({
+    // visible percentage before trigering
+    threshold: 0.2,
+  });
 
   return (
     <>
       <div className={classes.triangle} />
 
-      <div className={classes.root}>
+      <motion.div
+        className={classes.root}
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView && { opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <Section anchor="contacts" noVerticalPadding>
           <div className={classes.footerWrapper}>
             <div className={classes.leftWrapper}>
@@ -268,7 +281,7 @@ const Footer = () => {
             </div>
           </div>
         </Section>
-      </div>
+      </motion.div>
 
       <MyModal
         open={open}

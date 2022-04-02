@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PlusIcon, QuestionMarkCircleIcon } from "@heroicons/react/outline";
+import { QuestionMarkCircleIcon } from "@heroicons/react/outline";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
