@@ -89,7 +89,7 @@ const Widget = () => {
           },
         }}
         ariaLabel="SpeedDial Widget"
-        sx={{ position: "absolute", bottom: 16, right: 16 }}
+        sx={{ position: "absolute", bottom: 16, right: isXS ? 8 : 16 }}
         icon={
           <SpeedDialIcon
             icon={
