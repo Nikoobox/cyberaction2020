@@ -67,27 +67,29 @@ const LandingPage = () => {
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
       <WelcomeMessage toggleVideoSound={toggleVideoSound} />
-      <div className={classes.soundButtonWrapper}>
-        <Button
-          onClick={toggleVideoSound}
-          className="soundButton"
-          disableRipple
-        >
-          {isMuted ? (
-            <SvgIcon
-              component={VolumeOffIcon}
-              viewBox="0 0 24 24"
-              className="volume-icon"
-            />
-          ) : (
-            <SvgIcon
-              component={VolumeUpIcon}
-              viewBox="0 0 24 24"
-              className="volume-icon"
-            />
-          )}
-        </Button>
-      </div>
+      {isVideoLoaded && (
+        <div className={classes.soundButtonWrapper}>
+          <Button
+            onClick={toggleVideoSound}
+            className="soundButton"
+            disableRipple
+          >
+            {isMuted ? (
+              <SvgIcon
+                component={VolumeOffIcon}
+                viewBox="0 0 24 24"
+                className="volume-icon"
+              />
+            ) : (
+              <SvgIcon
+                component={VolumeUpIcon}
+                viewBox="0 0 24 24"
+                className="volume-icon"
+              />
+            )}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

@@ -67,8 +67,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: COLORS.RED_MAIN,
       },
       [theme.breakpoints.down("sm")]: {
-        fontSize: "24px",
-        lineHeight: "32px",
+        fontSize: "18px",
+        lineHeight: "24px",
         padding: "6px 16px",
       },
     },
@@ -88,8 +88,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: COLORS.RED_MAIN,
       },
       [theme.breakpoints.down("sm")]: {
-        fontSize: "24px",
-        lineHeight: "32px",
+        fontSize: "18px",
+        lineHeight: "24px",
         padding: "6px 16px",
       },
     },
@@ -106,8 +106,6 @@ const WelcomeMessage = () => {
           Первая VR Арена в Самаре
         </Typography>
         <Typography className={classes.body}>
-          {/* {text}
-          {!isFinishedTyping && <Cursor />} */}
           Уникальный командный шутер
         </Typography>
         {/* <div className={classes.buttonWrapper}>
@@ -123,13 +121,6 @@ const WelcomeMessage = () => {
             Забронировать
           </a>
         </div>
-        {/* <a
-          href="/"
-          class="ms_booking"
-          data-url="https://w327499.yclients.com/widgetJS"
-        >
-          TEST
-        </a> */}
         {/* <iframe
           height="545px"
           width="320px"
