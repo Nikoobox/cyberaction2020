@@ -42,9 +42,14 @@ const LandingPage = () => {
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const classes = useStyles({ isXS });
   const [isMuted, setIsMuted] = useState(true);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const toggleVideoSound = () => {
     setIsMuted(!isMuted);
+  };
+
+  const onLoadedData = () => {
+    setIsVideoLoaded(true);
   };
 
   return (
@@ -55,6 +60,8 @@ const LandingPage = () => {
         loop
         muted={isMuted ? true : false}
         playsInline
+        onLoadedData={onLoadedData}
+        style={{ opacity: isVideoLoaded ? 1 : 0 }}
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
