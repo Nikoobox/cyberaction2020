@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
 const actions = [
   {
-    // icon: <PhoneIcon />,
     icon: (
       <SvgIcon
         component={PhoneIcon}
@@ -42,12 +41,7 @@ const actions = [
   },
   {
     icon: (
-      <SvgIcon
-        component={MailIcon}
-        viewBox="0 0 24 24"
-        className="item-icon"
-        // fill="none"
-      />
+      <SvgIcon component={MailIcon} viewBox="0 0 24 24" className="item-icon" />
     ),
     name: "Отправить имейл",
     operation: "email",
@@ -84,13 +78,13 @@ const Widget = () => {
       <SpeedDial
         FabProps={{
           style: {
-            backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.RED_MAIN,
-            // outline: `1px solid ${COLORS.WHITE_MAIN}`,
-            // outlineOffset: "-5px",
+            backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.GREEN_MAIN,
             border: isOpen
               ? `${COLORS.GREY_CLASSIC} solid 4px`
-              : `${COLORS.RED_MAIN} solid 4px`,
-            boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 1.5px ${COLORS.WHITE_MAIN} inset`,
+              : `${COLORS.GREEN_MAIN} solid 4px`,
+            boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${
+              isOpen ? COLORS.WHITE_MAIN : COLORS.WHITE_MAIN
+            } inset`,
             borderRadius: "50%",
           },
         }}
@@ -98,8 +92,20 @@ const Widget = () => {
         sx={{ position: "absolute", bottom: 16, right: 16 }}
         icon={
           <SpeedDialIcon
-            icon={<SvgIcon component={DotsVerticalIcon} viewBox="0 0 24 24" />}
-            openIcon={<SvgIcon component={XIcon} viewBox="0 0 24 24" />}
+            icon={
+              <SvgIcon
+                component={DotsVerticalIcon}
+                viewBox="0 0 24 24"
+                color={COLORS.GREEN_MAIN}
+              />
+            }
+            openIcon={
+              <SvgIcon
+                component={XIcon}
+                viewBox="0 0 24 24"
+                color={COLORS.WHITE_MAIN}
+              />
+            }
           />
         }
         onClick={() => setIsOpen(!isOpen)}
@@ -128,7 +134,7 @@ const Widget = () => {
                   // outlineOffset: "-4px",
                   borderRadius: "50%",
                   border: `${COLORS.GREY_MAIN} solid 4px`,
-                  boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 1.5px ${COLORS.GREEN_MAIN} inset`,
+                  boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${COLORS.GREEN_MAIN} inset`,
                 },
               }}
               href={action.link}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { XIcon, PhoneIcon } from "@heroicons/react/outline";
 import { FaTelegramPlane, FaVk } from "react-icons/fa";
 
@@ -217,14 +217,14 @@ const Navbar = () => {
               <div className={classes.navButtonsWrapper}>
                 {pages.map((page) => {
                   return (
-                    <Link
+                    <ScrollLink
                       href={page.route}
                       to={page.anchor}
                       smooth={true}
                       duration={1000}
                     >
                       {page.name}
-                    </Link>
+                    </ScrollLink>
                   );
                 })}
               </div>
@@ -304,7 +304,7 @@ const Navbar = () => {
             {pages.map((page, idx) => (
               <>
                 <div className={classes.drawerItemWrapper}>
-                  <Link
+                  <ScrollLink
                     href={page.route}
                     to={page.anchor}
                     smooth={true}
@@ -312,7 +312,7 @@ const Navbar = () => {
                     onClick={toggleDrawer()}
                   >
                     {page.name}
-                  </Link>
+                  </ScrollLink>
                 </div>
                 <Divider className={classes.divider} fullWidth />
               </>

@@ -1,5 +1,5 @@
 import React from "react";
-import _debounce from "lodash/debounce";
+import { Scrollbars } from "react-custom-scrollbars";
 import { XIcon } from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     outline: 0,
+    backgroundColor: (props) =>
+      props.fullScreen ? COLORS.BLACK_MAIN : "transparent",
     "& .MuiCardMedia-root": {
       height: "100%",
       width: "auto",
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       maxWidth: "100%",
 
-      height: "auto",
+      height: (props) => (props.fullScreen ? "100%" : "auto"),
       "& .MuiCardMedia-root": {
         width: "100%",
         padding: 0,
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     bgcolor: "background.paper",
     boxShadow: 24,
-    padding: 24,
+    padding: (props) => (props.fullScreen ? "24px 8px" : 24),
     "& .close-button": {
       position: "absolute",
       right: 12,
@@ -65,10 +67,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  scrollable: {
+    overflowY: "scroll",
+    padding: "16px",
+  },
 }));
 
-const MyModal = ({ open, onClose, content }) => {
-  const classes = useStyles();
+const MyModal = ({ open, onClose, content, fullScreen }) => {
+  const classes = useStyles({ fullScreen });
 
   return (
     <Modal
@@ -92,7 +98,9 @@ const MyModal = ({ open, onClose, content }) => {
               className="close-icon"
             />
           </Button>
-          {content && content}
+          <div className={fullScreen ? classes.scrollable : ""}>
+            {content && content}
+          </div>
         </div>
       </Fade>
     </Modal>

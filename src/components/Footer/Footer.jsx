@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
+import Button from "@mui/material/Button";
 import {
   PhoneIcon,
   CalendarIcon,
   LocationMarkerIcon,
   MailIcon,
 } from "@heroicons/react/outline";
-// import { AiOutlineInstagram } from "react-icons/ai";
+
 import { FaTelegramPlane, FaVk } from "react-icons/fa";
 import moment from "moment";
 import nsLogo from "../../media/images/ns_logo_mini.png";
 import { COLORS } from "../../theme";
 import Section from "../Section/Section";
+import Legal from "./Legal";
+import MyModal from "../MyModal/MyModal";
 
 const useStyles = makeStyles((theme) => ({
   triangle: {
@@ -24,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       clipPath: "polygon(100% 60%, 100% 100%, 0 100%)",
     },
+    marginBottom: "-1px",
   },
   root: {
     color: COLORS.WHITE_MAIN,
@@ -70,6 +74,12 @@ const useStyles = makeStyles((theme) => ({
         },
       },
     },
+    "& .agreementButton": {
+      color: COLORS.GREY_CLASSIC,
+      padding: 0,
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
   },
   rowWrapper: {
     display: "flex",
@@ -83,9 +93,6 @@ const useStyles = makeStyles((theme) => ({
       fill: "none",
       height: 32,
       width: 32,
-    },
-    "svg:hover": {
-      color: "green",
     },
   },
   right: {
@@ -128,6 +135,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   const todayDate = new Date();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -225,6 +233,14 @@ const Footer = () => {
                 </a>
               </div>
               <div className={classes.rowWrapper}>
+                <Button
+                  onClick={() => setOpen(true)}
+                  className="agreementButton"
+                >
+                  Пользовательское соглашение
+                </Button>
+              </div>
+              <div className={classes.rowWrapper}>
                 <Typography
                   className={`${classes.right} ${classes.darkerFont}`}
                 >
@@ -253,6 +269,13 @@ const Footer = () => {
           </div>
         </Section>
       </div>
+
+      <MyModal
+        open={open}
+        onClose={() => setOpen(false)}
+        content={<Legal />}
+        fullScreen
+      />
     </>
   );
 };

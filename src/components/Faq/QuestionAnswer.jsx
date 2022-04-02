@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 8,
     transition: "all 0.2s ease",
     "&:hover": {
-      color: COLORS.GREEN_MAIN,
+      // color: COLORS.GREEN_MAIN,
       cursor: "pointer",
       "& .MuiSvgIcon-root": {
         color: COLORS.GREEN_MAIN,
@@ -55,7 +55,7 @@ const QuestionAnswer = ({ row }) => {
   const handleClick = () => {
     if (!isShown) {
       setIsShown(true);
-      setTimeout(() => setIsShown(false), 20000);
+      setTimeout(() => setIsShown(false), 120000);
       return null;
     }
 

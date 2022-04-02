@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -49,6 +50,28 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "center",
     },
+    "& a": {
+      backgroundColor: COLORS.RED_MAIN,
+      padding: "8px 16px",
+      borderRadius: "24px",
+      color: COLORS.WHITE_MAIN,
+      display: "inline-block",
+      fontSize: "18px",
+      lineHeight: "24px",
+      fontWeight: 300,
+      marginTop: "16px",
+      border: `${COLORS.RED_MAIN} solid 4px`,
+      boxShadow: "0px 0px 0px 1px #fff inset",
+      textDecoration: "none",
+      "&:hover": {
+        backgroundColor: COLORS.RED_MAIN,
+      },
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "24px",
+        lineHeight: "32px",
+        padding: "6px 16px",
+      },
+    },
     "& .buttonWrapper": {
       backgroundColor: COLORS.RED_MAIN,
       padding: "8px 16px",
@@ -73,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WelcomeMessage = ({ toggleVideoSound }) => {
+const WelcomeMessage = () => {
   const classes = useStyles();
 
   return (
@@ -90,22 +113,16 @@ const WelcomeMessage = ({ toggleVideoSound }) => {
         {/* <div className={classes.buttonWrapper}>
           <Button className="buttonWrapper">Забронировать</Button>
         </div> */}
-        {/* <button type="button" class="btn btn-book btn-lg">
+        {/* <button type="button" className="btn btn-book btn-lg">
           <a class="ms_booking" href="https://w327499.yclients.com/widgetJS">
             Забронировать
           </a>
         </button> */}
-        <a
-          className=""
-          style={{
-            marginTop: "24px",
-            backgroundColor: "white",
-            padding: "16px",
-          }}
-          href="https://w327499.yclients.com/widgetJS"
-        >
-          Забронировать
-        </a>
+        <div className={classes.buttonWrapper}>
+          <a className="ms_booking" href="//w327499.yclients.com/widgetJS">
+            Забронировать
+          </a>
+        </div>
         {/* <a
           href="/"
           class="ms_booking"
