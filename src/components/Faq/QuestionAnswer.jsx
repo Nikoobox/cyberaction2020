@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   questionIcon: {
     "&.MuiSvgIcon-root": {
       fill: "none",
-      height: 32,
-      width: 32,
+      height: 24,
+      width: 24,
       color: COLORS.WHITE_MAIN,
     },
   },
@@ -36,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
   },
   question: {
     "&.MuiTypography-root": {
-      fontSize: `24px`,
-      lineHeight: `32px`,
+      fontSize: `18px`,
+      lineHeight: `24px`,
+      fontWeight: 600,
       marginLeft: 8,
     },
   },
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: `18px`,
       lineHeight: `32px`,
       marginLeft: 40,
+      fontWeight: 300,
     },
   },
 }));

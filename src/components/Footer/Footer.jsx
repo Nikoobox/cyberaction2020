@@ -148,15 +148,15 @@ const Footer = () => {
     <>
       <div className={classes.triangle} />
 
-      <motion.div
-        className={classes.root}
-        ref={ref}
-        initial={{ opacity: 0 }}
-        animate={inView && { opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
+      <div className={classes.root}>
         <Section anchor="contacts" noVerticalPadding>
-          <div className={classes.footerWrapper}>
+          <motion.div
+            className={classes.footerWrapper}
+            ref={ref}
+            initial={{ opacity: 0 }}
+            animate={inView && { opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className={classes.leftWrapper}>
               <div className={classes.rowWrapper}>
                 <a
@@ -180,7 +180,10 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   className={classes.left}
                 />
-                <div>Будни 16:00-22:00, выходные 10:00-22:00</div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div>Будни 16:00-22:00, выходные 10:00-22:00</div>
+                  <div>По предварительной записи</div>
+                </div>
               </div>
               <div className={classes.rowWrapper}>
                 <a
@@ -279,9 +282,9 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Section>
-      </motion.div>
+      </div>
 
       <MyModal
         open={open}
