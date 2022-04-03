@@ -31,16 +31,17 @@ import containers4 from "../../media/images/games/containers/containers4.png";
 import containersVideo from "../../media/images/games/containers/containers.mp4";
 import office1 from "../../media/images/games/office/office1.png";
 import office2 from "../../media/images/games/office/office2.png";
-// import office3 from "../../media/images/games/office/office3.png";
+import office3 from "../../media/images/games/office/office3.jpeg";
 import office4 from "../../media/images/games/office/office4.png";
 import officeVideo from "../../media/images/games/office/office.mp4";
 import poligon1 from "../../media/images/games/poligon/poligon1.png";
-import poligon2 from "../../media/images/games/poligon/poligon2.png";
+// import poligon2 from "../../media/images/games/poligon/poligon2.png";
 import poligon3 from "../../media/images/games/poligon/poligon3.png";
 import poligon4 from "../../media/images/games/poligon/poligon4.png";
+import poligon5 from "../../media/images/games/poligon/poligon5.jpeg";
 import poligonVideo from "../../media/images/games/poligon/poligon.mp4";
 import prototype1 from "../../media/images/games/prototype/prototype1.png";
-import prototype2 from "../../media/images/games/prototype/prototype2.png";
+import prototype2 from "../../media/images/games/prototype/prototype2.jpeg";
 import prototype3 from "../../media/images/games/prototype/prototype3.png";
 import prototype4 from "../../media/images/games/prototype/prototype4.png";
 import prototypeVideo from "../../media/images/games/prototype/prototype.mp4";
@@ -66,6 +67,14 @@ import house1 from "../../media/images/games/house/house1.jpeg";
 import house2 from "../../media/images/games/house/house2.jpeg";
 import house3 from "../../media/images/games/house/house3.jpeg";
 import houseVideo from "../../media/images/games/house/house.mp4";
+import western1 from "../../media/images/games/western/western1.jpeg";
+import western2 from "../../media/images/games/western/western2.jpeg";
+import western3 from "../../media/images/games/western/western3.jpeg";
+import westernVideo from "../../media/images/games/western/western.mp4";
+import construction1 from "../../media/images/games/construction/construction1.jpeg";
+import construction2 from "../../media/images/games/construction/construction2.jpeg";
+import construction3 from "../../media/images/games/construction/construction3.jpeg";
+import constructionVideo from "../../media/images/games/construction/construction.mp4";
 
 export const IMAGES = [pic1, pic2, pic3, pic5, pic6, pic7, pic8, pic9];
 export const BIRTHDAY_IMAGES = [
@@ -175,6 +184,22 @@ export const GAMES_DATA = [
     pictures: [house1, house2, house3],
   },
   {
+    name: "Локация ·Вестерн·",
+    isNew: true,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis",
+    video: westernVideo,
+    pictures: [western1, western2, western3],
+  },
+  {
+    name: "Локация ·Стройка·",
+    isNew: false,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum labor",
+    video: constructionVideo,
+    pictures: [construction1, construction2, construction3],
+  },
+  {
     name: "Локация ·Бункер·",
     isNew: false,
     description:
@@ -196,7 +221,7 @@ export const GAMES_DATA = [
     description:
       "Разрабатывайте тактику вместе с товарищами по команде либо действуйте как герой одиночка в новой локации от CyberAction Samara.",
     video: officeVideo,
-    pictures: [office1, office2, office4],
+    pictures: [office3, office1, office2, office4],
   },
   {
     name: "Локация ·Полигон·",
@@ -204,7 +229,7 @@ export const GAMES_DATA = [
     description:
       "Идеальное место чтобы немного пострелять и побегать. Настоящий командный VR шутер для любителей как компютерных игр, так и активного отдыха.",
     video: poligonVideo,
-    pictures: [poligon1, poligon2, poligon3, poligon4],
+    pictures: [poligon1, poligon5, poligon3, poligon4],
   },
   {
     name: "Локация ·Прототип·",
@@ -212,7 +237,7 @@ export const GAMES_DATA = [
     description:
       "Оранжевый или синий? Плохой парень или хороший полицейский? Все просто, но со вкусом. Новейшая локация теперь и на нашей Арене!",
     video: prototypeVideo,
-    pictures: [prototype1, prototype3, prototype4],
+    pictures: [prototype2, prototype1, prototype3, prototype4],
   },
   {
     name: "Локация ·Спидбол·",
