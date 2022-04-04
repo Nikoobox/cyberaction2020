@@ -21,9 +21,9 @@ import HideOnScroll from "./HideOnScroll";
 import { COLORS } from "../../theme";
 
 const pages = [
-  { name: "Игры", route: "/", anchor: "games" },
   { name: "Цены", route: "/", anchor: "price" },
   { name: "Дни Рождения", route: "/", anchor: "birthdays" },
+  { name: "Игры", route: "/", anchor: "games" },
   { name: "FAQ", route: "/", anchor: "faq" },
   { name: "Галерея", route: "/", anchor: "gallery" },
   { name: "Контакты", route: "/", anchor: "contacts" },

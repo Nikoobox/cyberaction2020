@@ -59,23 +59,24 @@ const useStyles = makeStyles((theme) => ({
   },
   imageWrapper: {
     width: "100%",
-    height: "300px",
+    height: "200px",
     borderRadius: "16px",
     overflow: "hidden",
+    position: "relative",
     [theme.breakpoints.down("sm")]: {
-      height: "250px",
+      height: "180px",
     },
   },
   image: {
     width: "100%",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
   },
   buttonContainer: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    // [theme.breakpoints.down("sm")]: {
-    //   justifyContent: "flex-start",
-    // },
   },
 }));
 

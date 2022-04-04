@@ -19,8 +19,8 @@ const Splash = () => {
     <>
       <LandingPage />
       <Rules />
-      <Games />
       <Birthdays />
+      <Games />
       <Faq />
       <Gallery />
       <Footer />
