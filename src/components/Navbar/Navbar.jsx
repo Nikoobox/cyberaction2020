@@ -215,9 +215,10 @@ const Navbar = () => {
 
               {/* web */}
               <div className={classes.navButtonsWrapper}>
-                {pages.map((page) => {
+                {pages.map((page, idx) => {
                   return (
                     <ScrollLink
+                      key={idx}
                       href={page.route}
                       to={page.anchor}
                       smooth={true}
@@ -302,7 +303,7 @@ const Navbar = () => {
           </div>
           <List>
             {pages.map((page, idx) => (
-              <>
+              <div key={idx}>
                 <div className={classes.drawerItemWrapper}>
                   <ScrollLink
                     href={page.route}
@@ -315,7 +316,7 @@ const Navbar = () => {
                   </ScrollLink>
                 </div>
                 <Divider className={classes.divider} fullWidth />
-              </>
+              </div>
             ))}
             <div className={classes.callContainer}>
               <a

@@ -28,7 +28,7 @@ const theme = createTheme({
       main: COLORS.BLACK_MAIN,
     },
     secondary: {
-      main: COLORS.TEAL,
+      main: COLORS.WHITE_MAIN,
     },
   },
   typography: {

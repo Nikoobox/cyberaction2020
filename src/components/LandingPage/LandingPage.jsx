@@ -8,6 +8,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import { COLORS } from "../../theme";
 import backgroundVideoRect from "../../media/back_rect.mp4";
 import WelcomeMessage from "./WelcomeMessage";
+import Spinner from "../Spinner/Spinner";
 
 const useStyles = makeStyles((theme) => ({
   root: { backgroundColor: COLORS.BLACK_MAIN },
@@ -52,9 +53,10 @@ const LandingPage = () => {
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
-
+  console.log("isVideoLoaded: ", isVideoLoaded);
   return (
     <div className={classes.root}>
+      {/* {isVideoLoaded ? ( */}
       <video
         className={classes.videoWrapper}
         autoPlay
@@ -66,7 +68,14 @@ const LandingPage = () => {
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
-      <WelcomeMessage toggleVideoSound={toggleVideoSound} />
+      {/* ) : ( */}
+      {/* <Spinner color="secondary" /> */}
+      {/* )} */}
+      {isVideoLoaded ? (
+        <WelcomeMessage toggleVideoSound={toggleVideoSound} />
+      ) : (
+        <Spinner />
+      )}
       {isVideoLoaded && (
         <div className={classes.soundButtonWrapper}>
           <Button

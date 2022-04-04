@@ -193,7 +193,7 @@ const Birthdays = () => {
               })}
 
               <WatchVideoButton
-                text="Смотреть Ролик"
+                text="Видео праздника"
                 handleClick={handleClick}
                 icon={PlayIcon}
                 horizontalPadding="32px"
