@@ -114,14 +114,7 @@ const WelcomeMessage = () => {
           <Typography className={classes.body}>
             Уникальный командный шутер
           </Typography>
-          {/* <div className={classes.buttonWrapper}>
-          <Button className="buttonWrapper">Забронировать</Button>
-        </div> */}
-          {/* <button type="button" className="btn btn-book btn-lg">
-          <a class="ms_booking" href="https://w327499.yclients.com/widgetJS">
-            Забронировать
-          </a>
-        </button> */}
+
           <div className={classes.buttonWrapper}>
             <a className="ms_booking" href="//w327499.yclients.com/widgetJS">
               Забронировать
