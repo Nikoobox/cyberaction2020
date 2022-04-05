@@ -16,6 +16,7 @@ import { COLORS } from "../../theme";
 import Section from "../Section/Section";
 import InfoRow from "../InfoRow/InfoRow";
 import bdayVideo from "../../media/bdayvideotrimed.mp4";
+import bdayVideo2 from "../../media/bdayvideo2.mp4";
 import MyModal from "../MyModal/MyModal";
 import {
   BDAY_DATA,
@@ -139,7 +140,7 @@ const settings = {
 
 const Birthdays = () => {
   const [open, setOpen] = useState(false);
-
+  const [activeVideo, setActiveVideo] = useState(bdayVideo);
   const classes = useStyles();
 
   const { ref, inView } = useInView({
@@ -147,7 +148,8 @@ const Birthdays = () => {
     threshold: 0.2,
   });
 
-  const handleClick = () => {
+  const handleClick = (videoToWatch) => {
+    setActiveVideo(videoToWatch);
     setOpen(!open);
   };
 
@@ -233,13 +235,27 @@ const Birthdays = () => {
 
             <div className={classes.sliderWrapper}>
               <Slider {...settings}>{images}</Slider>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <WatchVideoButton
-                  text="Видео праздника"
-                  handleClick={handleClick}
+                  text="Видео праздника-1"
+                  handleClick={() => handleClick(bdayVideo)}
                   icon={PlayIcon}
                   horizontalPadding="32px"
                   // topMargin="24px"
+                />
+                <WatchVideoButton
+                  text="Видео праздника-2"
+                  handleClick={() => handleClick(bdayVideo2)}
+                  icon={PlayIcon}
+                  horizontalPadding="32px"
+                  topMargin="8px"
                 />
               </div>
             </div>
@@ -253,7 +269,7 @@ const Birthdays = () => {
         content={
           <CardMedia
             component="video"
-            image={bdayVideo}
+            image={activeVideo}
             title="title"
             controls
             autoPlay
