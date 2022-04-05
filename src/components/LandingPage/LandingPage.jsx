@@ -56,7 +56,6 @@ const LandingPage = () => {
   console.log("isVideoLoaded: ", isVideoLoaded);
   return (
     <div className={classes.root}>
-      {/* {isVideoLoaded ? ( */}
       <video
         className={classes.videoWrapper}
         autoPlay
@@ -68,9 +67,6 @@ const LandingPage = () => {
       >
         <source src={backgroundVideoRect} type="video/mp4" />
       </video>
-      {/* ) : ( */}
-      {/* <Spinner color="secondary" /> */}
-      {/* )} */}
       {isVideoLoaded ? (
         <WelcomeMessage toggleVideoSound={toggleVideoSound} />
       ) : (

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sliderWrapper: {
-    width: "45%",
+    width: "40%",
     overflow: "hidden",
 
     [theme.breakpoints.down("md")]: {
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   bdayInfoWrapper: {
-    width: "55%",
+    width: "60%",
     marginRight: "24px",
     "& a:-webkit-any-link": {
       textDecoration: "none",
@@ -192,13 +192,13 @@ const Birthdays = () => {
                 return <InfoRow data={row} key={idx} isCircleShown />;
               })}
 
-              <WatchVideoButton
+              {/* <WatchVideoButton
                 text="Видео праздника"
                 handleClick={handleClick}
                 icon={PlayIcon}
                 horizontalPadding="32px"
                 topMargin="24px"
-              />
+              /> */}
 
               <Typography className={classes.subHeader}>
                 Дополнительная информация и бронирование по номеру:
@@ -233,6 +233,15 @@ const Birthdays = () => {
 
             <div className={classes.sliderWrapper}>
               <Slider {...settings}>{images}</Slider>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <WatchVideoButton
+                  text="Видео праздника"
+                  handleClick={handleClick}
+                  icon={PlayIcon}
+                  horizontalPadding="32px"
+                  // topMargin="24px"
+                />
+              </div>
             </div>
           </div>
         </Section>
