@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { VolumeUpIcon, VolumeOffIcon } from "@heroicons/react/outline";
+import {
+  VolumeUpIcon,
+  VolumeOffIcon,
+  // XIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Box from "@mui/material/Box";
-import { XIcon } from "@heroicons/react/outline";
 import IconButton from "@mui/material/IconButton";
 
 import { COLORS } from "../../theme";
@@ -51,16 +55,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   closeDrawerButton: {
-    // width: "32px",
-    // height: "32px",
-    // backgroundColor: COLORS.MAIN_WHITE,
-    // position: "absolute",
-    // left: "-8px",
-    // "& .close-drawer-icon": {},
-    // "&.MuiButton-root": {
-    //   // padding: 0,
-    //   backgroundColor: COLORS.MAIN_WHITE,
-    // },
+    "& .MuiSvgIcon-root": {
+      fill: "none",
+    },
   },
 }));
 
@@ -151,7 +148,7 @@ const LandingPage = () => {
           onKeyDown={toggleDrawer()}
         >
           <IconButton
-            // className={classes.closeDrawerButton}
+            className={classes.closeDrawerButton}
             size="large"
             aria-label="account of current user"
             aria-controls="menu-appbar"
@@ -159,18 +156,15 @@ const LandingPage = () => {
             onClick={toggleDrawer()}
             style={{
               position: "absolute",
-              right: 20,
+              right: 24,
               top: 16,
-              // left: 8,
-              // top: 40,
               backgroundColor: COLORS.WHITE_MAIN,
-              // zIndex: 999999,
-              width: "32px",
-              height: "32px",
+              width: "40px",
+              height: "40px",
             }}
           >
             <SvgIcon
-              component={XIcon}
+              component={ChevronRightIcon}
               viewBox="0 0 24 24"
               className="close-drawer-icon"
             />
