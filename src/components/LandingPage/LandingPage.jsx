@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Box from "@mui/material/Box";
+import { XIcon } from "@heroicons/react/outline";
+import IconButton from "@mui/material/IconButton";
 
 import { COLORS } from "../../theme";
 import backgroundVideoRect from "../../media/back_rect.mp4";
@@ -42,12 +44,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawer: {
-    // zIndex: 9,
     "&.MuiDrawer-paper": {
       backgroundColor: COLORS.BLACK_MAIN,
       opacity: 1,
       width: (props) => (props.isXS ? "100%" : "510px"),
     },
+  },
+  closeDrawerButton: {
+    // width: "32px",
+    // height: "32px",
+    // backgroundColor: COLORS.MAIN_WHITE,
+    // position: "absolute",
+    // left: "-8px",
+    // "& .close-drawer-icon": {},
+    // "&.MuiButton-root": {
+    //   // padding: 0,
+    //   backgroundColor: COLORS.MAIN_WHITE,
+    // },
   },
 }));
 
@@ -137,6 +150,31 @@ const LandingPage = () => {
           onClick={toggleDrawer()}
           onKeyDown={toggleDrawer()}
         >
+          <IconButton
+            // className={classes.closeDrawerButton}
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={toggleDrawer()}
+            style={{
+              position: "absolute",
+              right: 20,
+              top: 16,
+              // left: 8,
+              // top: 40,
+              backgroundColor: COLORS.WHITE_MAIN,
+              // zIndex: 999999,
+              width: "32px",
+              height: "32px",
+            }}
+          >
+            <SvgIcon
+              component={XIcon}
+              viewBox="0 0 24 24"
+              className="close-drawer-icon"
+            />
+          </IconButton>
           <YClientBookingForm />
         </Box>
       </SwipeableDrawer>

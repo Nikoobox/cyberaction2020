@@ -96,27 +96,6 @@ const useStyles = makeStyles((theme) => ({
         padding: "6px 16px",
       },
     },
-    // "& .buttonWrapper": {
-    //   backgroundColor: COLORS.RED_MAIN,
-    //   padding: "8px 16px",
-    //   borderRadius: "24px",
-    //   color: COLORS.WHITE_MAIN,
-    //   display: "block",
-    //   fontSize: "18px",
-    //   lineHeight: "24px",
-    //   fontWeight: 300,
-    //   marginTop: "16px",
-    //   border: `${COLORS.RED_MAIN} solid 4px`,
-    //   boxShadow: "0px 0px 0px 1px #fff inset",
-    //   "&:hover": {
-    //     backgroundColor: COLORS.RED_MAIN,
-    //   },
-    //   [theme.breakpoints.down("sm")]: {
-    //     fontSize: "18px",
-    //     lineHeight: "24px",
-    //     padding: "6px 16px",
-    //   },
-    // },
   },
 }));
 
