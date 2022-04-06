@@ -4,11 +4,14 @@ import { makeStyles } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import Box from "@mui/material/Box";
 
 import { COLORS } from "../../theme";
 import backgroundVideoRect from "../../media/back_rect.mp4";
 import WelcomeMessage from "./WelcomeMessage";
 import Spinner from "../Spinner/Spinner";
+import YClientBookingForm from "./YClientBookingForm";
 
 const useStyles = makeStyles((theme) => ({
   root: { backgroundColor: COLORS.BLACK_MAIN },
@@ -38,12 +41,21 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  drawer: {
+    // zIndex: 9,
+    "&.MuiDrawer-paper": {
+      backgroundColor: COLORS.BLACK_MAIN,
+      opacity: 1,
+      width: (props) => (props.isXS ? "100%" : "510px"),
+    },
+  },
 }));
 
 const LandingPage = () => {
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [isMuted, setIsMuted] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [drawerState, setDrawerState] = useState(false);
   const classes = useStyles({ isXS, isVideoLoaded });
 
   const toggleVideoSound = () => {
@@ -53,49 +65,82 @@ const LandingPage = () => {
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
-  console.log("isVideoLoaded: ", isVideoLoaded);
+
+  const toggleDrawer = () => (event) => {
+    console.log("here");
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setDrawerState(!drawerState);
+  };
+
   return (
-    <div className={classes.root}>
-      <video
-        className={classes.videoWrapper}
-        autoPlay
-        loop
-        muted={isMuted ? true : false}
-        playsInline
-        onLoadedData={onLoadedData}
-        style={{ opacity: isVideoLoaded ? 1 : 0 }}
+    <>
+      <div className={classes.root}>
+        <video
+          className={classes.videoWrapper}
+          autoPlay
+          loop
+          muted={isMuted ? true : false}
+          playsInline
+          onLoadedData={onLoadedData}
+          style={{ opacity: isVideoLoaded ? 1 : 0 }}
+        >
+          <source src={backgroundVideoRect} type="video/mp4" />
+        </video>
+        {isVideoLoaded ? (
+          <WelcomeMessage
+            toggleVideoSound={toggleVideoSound}
+            toggleDrawer={toggleDrawer}
+          />
+        ) : (
+          <Spinner />
+        )}
+        {isVideoLoaded && (
+          <div className={classes.soundButtonWrapper}>
+            <Button
+              onClick={toggleVideoSound}
+              className="soundButton"
+              disableRipple
+            >
+              {isMuted ? (
+                <SvgIcon
+                  component={VolumeOffIcon}
+                  viewBox="0 0 24 24"
+                  className="volume-icon"
+                />
+              ) : (
+                <SvgIcon
+                  component={VolumeUpIcon}
+                  viewBox="0 0 24 24"
+                  className="volume-icon"
+                />
+              )}
+            </Button>
+          </div>
+        )}
+      </div>
+      <SwipeableDrawer
+        classes={{ paper: classes.drawer }}
+        anchor="right"
+        open={drawerState}
+        onClose={toggleDrawer()}
+        onOpen={toggleDrawer()}
       >
-        <source src={backgroundVideoRect} type="video/mp4" />
-      </video>
-      {isVideoLoaded ? (
-        <WelcomeMessage toggleVideoSound={toggleVideoSound} />
-      ) : (
-        <Spinner />
-      )}
-      {isVideoLoaded && (
-        <div className={classes.soundButtonWrapper}>
-          <Button
-            onClick={toggleVideoSound}
-            className="soundButton"
-            disableRipple
-          >
-            {isMuted ? (
-              <SvgIcon
-                component={VolumeOffIcon}
-                viewBox="0 0 24 24"
-                className="volume-icon"
-              />
-            ) : (
-              <SvgIcon
-                component={VolumeUpIcon}
-                viewBox="0 0 24 24"
-                className="volume-icon"
-              />
-            )}
-          </Button>
-        </div>
-      )}
-    </div>
+        <Box
+          sx={{ width: "100%" }}
+          onClick={toggleDrawer()}
+          onKeyDown={toggleDrawer()}
+        >
+          <YClientBookingForm />
+        </Box>
+      </SwipeableDrawer>
+    </>
   );
 };
 

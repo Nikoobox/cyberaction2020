@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 // import { useInView } from "react-intersection-observer";
-
+import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -9,8 +9,9 @@ import Typography from "@mui/material/Typography";
 import { COLORS } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  // root: {zIndex:100.marginTop},
   messageContainer: {
+    zIndex: 999,
     position: "absolute",
     top: "60%",
     transform: "translateY(-60%)",
@@ -51,7 +52,29 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "center",
     },
-    "& a": {
+    // "& a": {
+    //   backgroundColor: COLORS.RED_MAIN,
+    //   padding: "8px 16px",
+    //   borderRadius: "24px",
+    //   color: COLORS.WHITE_MAIN,
+    //   display: "inline-block",
+    //   fontSize: "18px",
+    //   lineHeight: "24px",
+    //   fontWeight: 300,
+    //   marginTop: "16px",
+    //   border: `${COLORS.RED_MAIN} solid 4px`,
+    //   boxShadow: "0px 0px 0px 1px #fff inset",
+    //   textDecoration: "none",
+    //   "&:hover": {
+    //     backgroundColor: COLORS.RED_MAIN,
+    //   },
+    //   [theme.breakpoints.down("sm")]: {
+    //     fontSize: "18px",
+    //     lineHeight: "24px",
+    //     padding: "6px 16px",
+    //   },
+    // },
+    "& .MuiButton-root": {
       backgroundColor: COLORS.RED_MAIN,
       padding: "8px 16px",
       borderRadius: "24px",
@@ -73,33 +96,33 @@ const useStyles = makeStyles((theme) => ({
         padding: "6px 16px",
       },
     },
-    "& .buttonWrapper": {
-      backgroundColor: COLORS.RED_MAIN,
-      padding: "8px 16px",
-      borderRadius: "24px",
-      color: COLORS.WHITE_MAIN,
-      display: "block",
-      fontSize: "18px",
-      lineHeight: "24px",
-      fontWeight: 300,
-      marginTop: "16px",
-      border: `${COLORS.RED_MAIN} solid 4px`,
-      boxShadow: "0px 0px 0px 1px #fff inset",
-      "&:hover": {
-        backgroundColor: COLORS.RED_MAIN,
-      },
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "18px",
-        lineHeight: "24px",
-        padding: "6px 16px",
-      },
-    },
+    // "& .buttonWrapper": {
+    //   backgroundColor: COLORS.RED_MAIN,
+    //   padding: "8px 16px",
+    //   borderRadius: "24px",
+    //   color: COLORS.WHITE_MAIN,
+    //   display: "block",
+    //   fontSize: "18px",
+    //   lineHeight: "24px",
+    //   fontWeight: 300,
+    //   marginTop: "16px",
+    //   border: `${COLORS.RED_MAIN} solid 4px`,
+    //   boxShadow: "0px 0px 0px 1px #fff inset",
+    //   "&:hover": {
+    //     backgroundColor: COLORS.RED_MAIN,
+    //   },
+    //   [theme.breakpoints.down("sm")]: {
+    //     fontSize: "18px",
+    //     lineHeight: "24px",
+    //     padding: "6px 16px",
+    //   },
+    // },
   },
 }));
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ toggleDrawer }) => {
   const classes = useStyles();
-
+  console.log("toggleDrawer", toggleDrawer);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -114,22 +137,14 @@ const WelcomeMessage = () => {
           <Typography className={classes.body}>
             Уникальный командный шутер
           </Typography>
-
-          <div className={classes.buttonWrapper}>
-            <a className="ms_booking" href="//w327499.yclients.com/widgetJS">
+          {/* <div className={classes.buttonWrapper}>
+            <a href="//w327499.yclients.com/widgetJS" className="ms_booking">
               Забронировать
             </a>
+          </div> */}
+          <div className={classes.buttonWrapper}>
+            <Button onClick={toggleDrawer()}> Забронировать</Button>
           </div>
-          {/* <iframe
-          height="545px"
-          width="320px"
-          scrolling="no"
-          frameborder="0"
-          allowtransparency="true"
-          id="ms_booking_iframe"
-          // src="https://w1234.yclients.com/"
-          src="https://w327499.yclients.com/"
-        ></iframe> */}
         </div>
       </Container>
     </motion.div>

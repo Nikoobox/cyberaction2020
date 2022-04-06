@@ -6,12 +6,14 @@ import Splash from "./components/Splash/Splash";
 import Navbar from "./components/Navbar/Navbar";
 import Widget from "./components/Widget/Widget";
 import theme from "./theme";
+import WelcomeMessage from "./components/LandingPage/WelcomeMessage";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <CssBaseline />
+        {/* <WelcomeMessage /> */}
         <Widget />
         <Navbar />
         <Routes>
