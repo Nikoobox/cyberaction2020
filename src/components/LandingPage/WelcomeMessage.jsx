@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
@@ -9,9 +8,9 @@ import Typography from "@mui/material/Typography";
 import { COLORS } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
-  // root: {zIndex:100.marginTop},
+  root: {},
   messageContainer: {
-    zIndex: 999,
+    zIndex: 2,
     position: "absolute",
     top: "60%",
     transform: "translateY(-60%)",

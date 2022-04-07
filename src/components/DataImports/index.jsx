@@ -6,7 +6,6 @@ import {
 import pic1 from "../../media/images/pic1.jpg";
 import pic2 from "../../media/images/pic2.jpg";
 import pic3 from "../../media/images/pic3.jpeg";
-import pic4 from "../../media/images/pic4.jpg";
 import pic5 from "../../media/images/pic5.jpeg";
 import pic6 from "../../media/images/pic6.jpg";
 import pic7 from "../../media/images/pic7.jpeg";
@@ -17,8 +16,11 @@ import bdayPic2 from "../../media/images/bday/imgbday2.jpg";
 import bdayPic3 from "../../media/images/bday/imgbday3.jpg";
 import bdayPic4 from "../../media/images/bday/imgbday4.jpg";
 import bdayPic5 from "../../media/images/bday/imgbday5.jpg";
-// import bdayPic6 from "../../media/images/bday/imgbday6.jpg";
+import bdayPic6 from "../../media/images/bday/imgbday6.jpg";
 // import bdayPic7 from "../../media/images/bday/imgbday7.jpg";
+import bdayPic8 from "../../media/images/bday/imgbday8.jpg";
+import bdayPic9 from "../../media/images/bday/imgbday9.jpg";
+import bdayPic10 from "../../media/images/bday/imgbday10.jpg";
 import bunker1 from "../../media/images/games/bunker/bunker1.png";
 import bunker2 from "../../media/images/games/bunker/bunker2.png";
 import bunker3 from "../../media/images/games/bunker/bunker3.png";
@@ -35,7 +37,6 @@ import office3 from "../../media/images/games/office/office3.jpeg";
 import office4 from "../../media/images/games/office/office4.png";
 import officeVideo from "../../media/images/games/office/office.mp4";
 import poligon1 from "../../media/images/games/poligon/poligon1.png";
-// import poligon2 from "../../media/images/games/poligon/poligon2.png";
 import poligon3 from "../../media/images/games/poligon/poligon3.png";
 import poligon4 from "../../media/images/games/poligon/poligon4.png";
 import poligon5 from "../../media/images/games/poligon/poligon5.jpeg";
@@ -53,7 +54,6 @@ import speedballVideo from "../../media/images/games/speedball/speedball.mp4";
 import warehouse1 from "../../media/images/games/warehouse/warehouse1.jpeg";
 import warehouse2 from "../../media/images/games/warehouse/warehouse2.jpeg";
 import warehouse3 from "../../media/images/games/warehouse/warehouse3.jpeg";
-// import warehouse4 from "../../media/images/games/warehouse/warehouse4.jpeg";
 import warehouseVideo from "../../media/images/games/warehouse/warehouse.mp4";
 import bank1 from "../../media/images/games/bank/bank1.jpeg";
 import bank2 from "../../media/images/games/bank/bank2.jpeg";
@@ -83,8 +83,11 @@ export const BIRTHDAY_IMAGES = [
   bdayPic3,
   bdayPic4,
   bdayPic5,
-  // bdayPic6,
+  bdayPic6,
   // bdayPic7,
+  bdayPic8,
+  bdayPic9,
+  bdayPic10,
 ];
 
 export const BDAY_DATA = [
@@ -186,7 +189,7 @@ export const GAMES_DATA = [
     name: "Локация ·Вестерн·",
     isNew: true,
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis",
+      "Окунитесь в атмосферу дикого запада: ковбои, салуны, золото и палящее солнце. -Done! И, конечно, здесь вы не полицейские и террористы, здесь вы ковбои и ... ковбои.",
     video: westernVideo,
     pictures: [western1, western2, western3],
   },
@@ -194,7 +197,7 @@ export const GAMES_DATA = [
     name: "Локация ·Стройка·",
     isNew: false,
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum labor",
+      "Уникальная тактическая локация. Здесь вы и ваши соперники размещены по двум своим базам, разделенные пропастю. Передвижения сведены к минимуму, так кто же победит? -хитрейший, спокойнейши и терпеливейший.",
     video: constructionVideo,
     pictures: [construction1, construction2, construction3],
   },

@@ -86,7 +86,7 @@ const Widget = () => {
         position: "fixed",
         bottom: isXS ? 10 : 24,
         right: isXS ? 0 : 24,
-        zIndex: 2,
+        zIndex: 999,
       }}
     >
       <SpeedDial
