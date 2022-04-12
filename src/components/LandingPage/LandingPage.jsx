@@ -1,22 +1,15 @@
 import React, { useState } from "react";
-import {
-  VolumeUpIcon,
-  VolumeOffIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/outline";
+import { VolumeUpIcon, VolumeOffIcon } from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
 
 import { COLORS } from "../../theme";
 import backgroundVideoRect from "../../media/back_rect.mp4";
 import WelcomeMessage from "./WelcomeMessage";
 import Spinner from "../Spinner/Spinner";
-import YClientBookingForm from "./YClientBookingForm";
+import BookingDrawer from "./BookingDrawer";
 
 const useStyles = makeStyles((theme) => ({
   root: { backgroundColor: COLORS.BLACK_MAIN },
@@ -46,26 +39,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  drawer: {
-    "&.MuiDrawer-paper": {
-      backgroundColor: COLORS.BLACK_MAIN,
-      opacity: 1,
-      width: (props) => (props.isXS ? "100%" : "510px"),
-    },
-  },
-  closeDrawerButton: {
-    "& .MuiSvgIcon-root": {
-      fill: "none",
-    },
-  },
 }));
 
 const LandingPage = () => {
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [isMuted, setIsMuted] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [drawerState, setDrawerState] = useState(false);
-  const classes = useStyles({ isXS, isVideoLoaded });
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+  const classes = useStyles({ isXS });
 
   const toggleVideoSound = () => {
     setIsMuted(!isMuted);
@@ -85,7 +66,7 @@ const LandingPage = () => {
       return;
     }
 
-    setDrawerState(!drawerState);
+    setIsOpenDrawer(!isOpenDrawer);
   };
 
   return (
@@ -93,7 +74,7 @@ const LandingPage = () => {
       <div className={classes.root}>
         <video
           className={classes.videoWrapper}
-          // autoPlay
+          autoPlay
           loop
           muted={isMuted ? true : false}
           playsInline
@@ -134,43 +115,7 @@ const LandingPage = () => {
           </div>
         )}
       </div>
-      <SwipeableDrawer
-        classes={{ paper: classes.drawer }}
-        anchor="right"
-        open={drawerState}
-        onClose={toggleDrawer()}
-        onOpen={toggleDrawer()}
-      >
-        <Box
-          sx={{ width: "100%" }}
-          onClick={toggleDrawer()}
-          onKeyDown={toggleDrawer()}
-        >
-          <IconButton
-            className={classes.closeDrawerButton}
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={toggleDrawer()}
-            style={{
-              position: "absolute",
-              right: 24,
-              top: 16,
-              backgroundColor: COLORS.WHITE_MAIN,
-              width: "40px",
-              height: "40px",
-            }}
-          >
-            <SvgIcon
-              component={ChevronRightIcon}
-              viewBox="0 0 24 24"
-              className="close-drawer-icon"
-            />
-          </IconButton>
-          <YClientBookingForm />
-        </Box>
-      </SwipeableDrawer>
+      <BookingDrawer isOpenDrawer={isOpenDrawer} toggleDrawer={toggleDrawer} />
     </>
   );
 };

@@ -16,9 +16,9 @@ import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 
 import { COLORS } from "../../theme";
+import BookingDrawer from "../LandingPage/BookingDrawer";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   speedDialItem: {
     "& .item-icon": {
       color: COLORS.GREEN_MAIN,
@@ -38,8 +38,6 @@ const actions = [
     ),
     name: "Забронировать",
     operation: "booking",
-    link: "//w327499.yclients.com/widgetJS",
-    isBookingClass: "ms_booking",
   },
   {
     icon: (
@@ -63,7 +61,7 @@ const actions = [
   },
 ];
 
-const Widget = () => {
+const Widget = ({ toggleDrawer, isOpenDrawer }) => {
   const classes = useStyles();
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [isOpen, setIsOpen] = useState(false);
@@ -78,81 +76,83 @@ const Widget = () => {
   }, [isOpen]);
 
   return (
-    <Box
-      sx={{
-        height: 320,
-        transform: "translateZ(0px)",
-        flexGrow: 1,
-        position: "fixed",
-        bottom: isXS ? 10 : 24,
-        right: isXS ? 0 : 24,
-        zIndex: 999,
-      }}
-    >
-      <SpeedDial
-        FabProps={{
-          style: {
-            backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.GREEN_MAIN,
-            border: isOpen
-              ? `${COLORS.GREY_CLASSIC} solid 4px`
-              : `${COLORS.GREEN_MAIN} solid 4px`,
-            boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${
-              isOpen ? COLORS.WHITE_MAIN : COLORS.WHITE_MAIN
-            } inset`,
-            borderRadius: "50%",
-          },
+    <>
+      <Box
+        sx={{
+          height: 320,
+          transform: "translateZ(0px)",
+          flexGrow: 1,
+          position: "fixed",
+          bottom: isXS ? 10 : 24,
+          right: isXS ? 0 : 24,
+          zIndex: 999,
         }}
-        ariaLabel="SpeedDial Widget"
-        sx={{ position: "absolute", bottom: 16, right: isXS ? 8 : 16 }}
-        icon={
-          <SpeedDialIcon
-            icon={
-              <SvgIcon
-                component={DotsVerticalIcon}
-                viewBox="0 0 24 24"
-                color={COLORS.GREEN_MAIN}
-              />
-            }
-            openIcon={
-              <SvgIcon
-                component={XIcon}
-                viewBox="0 0 24 24"
-                color={COLORS.WHITE_MAIN}
-              />
-            }
-          />
-        }
-        onClick={() => setIsOpen(!isOpen)}
-        open={isOpen}
       >
-        {actions.map((action) => {
-          return (
-            <SpeedDialAction
-              className={`${classes.speedDialItem} ${
-                action.isBookingClass ? action.isBookingClass : ""
-              }`}
-              key={action.name}
-              icon={action.icon}
-              tooltipTitle={action.name}
-              // tooltipOpen
-              FabProps={{
-                style: {
-                  padding: "12px",
-                  width: "56px",
-                  height: "56px",
-                  backgroundColor: COLORS.GREY_MAIN,
-                  color: COLORS.GREEN_MAIN,
-                  borderRadius: "50%",
-                  border: `${COLORS.GREY_MAIN} solid 4px`,
-                  boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${COLORS.GREEN_MAIN} inset`,
-                },
-              }}
-              href={action.link}
+        <SpeedDial
+          FabProps={{
+            style: {
+              backgroundColor: isOpen ? COLORS.GREY_CLASSIC : COLORS.GREEN_MAIN,
+              border: isOpen
+                ? `${COLORS.GREY_CLASSIC} solid 4px`
+                : `${COLORS.GREEN_MAIN} solid 4px`,
+              boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${
+                isOpen ? COLORS.WHITE_MAIN : COLORS.WHITE_MAIN
+              } inset`,
+              borderRadius: "50%",
+            },
+          }}
+          ariaLabel="SpeedDial Widget"
+          sx={{ position: "absolute", bottom: 16, right: isXS ? 8 : 16 }}
+          icon={
+            <SpeedDialIcon
+              icon={
+                <SvgIcon
+                  component={DotsVerticalIcon}
+                  viewBox="0 0 24 24"
+                  color={COLORS.GREEN_MAIN}
+                />
+              }
+              openIcon={
+                <SvgIcon
+                  component={XIcon}
+                  viewBox="0 0 24 24"
+                  color={COLORS.WHITE_MAIN}
+                />
+              }
             />
-          );
-        })}
-      </SpeedDial>
-    </Box>
+          }
+          onClick={() => setIsOpen(!isOpen)}
+          open={isOpen}
+        >
+          {actions.map((action) => {
+            return (
+              <SpeedDialAction
+                className={classes.speedDialItem}
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                // tooltipOpen
+                FabProps={{
+                  style: {
+                    padding: "12px",
+                    width: "56px",
+                    height: "56px",
+                    backgroundColor: COLORS.GREY_MAIN,
+                    color: COLORS.GREEN_MAIN,
+                    borderRadius: "50%",
+                    border: `${COLORS.GREY_MAIN} solid 4px`,
+                    boxShadow: `0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 0px 0px 2px ${COLORS.GREEN_MAIN} inset`,
+                  },
+                }}
+                href={action.link}
+                onClick={!action.link ? toggleDrawer() : () => null}
+              />
+            );
+          })}
+        </SpeedDial>
+      </Box>
+      <BookingDrawer isOpenDrawer={isOpenDrawer} toggleDrawer={toggleDrawer} />
+    </>
   );
 };
 
