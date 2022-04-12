@@ -9,8 +9,7 @@ import { IMAGES } from "../DataImports/index";
 const useStyles = makeStyles((theme) => ({
   root: {},
   sliderWrapper: {
-    margin: "0 32px",
-    [theme.breakpoints.down("sm")]: { overflow: "hidden", margin: 0 },
+    [theme.breakpoints.down("sm")]: { overflow: "hidden" },
   },
   imageWrapper: {
     maxWidth: "300px",
@@ -28,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     padding: "0",
-    // marginTop: "50%",
-    // transform: "translateY(-50%)",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
       height: "auto",
@@ -47,6 +44,7 @@ const Gallery = () => {
 
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

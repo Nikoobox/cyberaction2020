@@ -51,28 +51,6 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "center",
     },
-    // "& a": {
-    //   backgroundColor: COLORS.RED_MAIN,
-    //   padding: "8px 16px",
-    //   borderRadius: "24px",
-    //   color: COLORS.WHITE_MAIN,
-    //   display: "inline-block",
-    //   fontSize: "18px",
-    //   lineHeight: "24px",
-    //   fontWeight: 300,
-    //   marginTop: "16px",
-    //   border: `${COLORS.RED_MAIN} solid 4px`,
-    //   boxShadow: "0px 0px 0px 1px #fff inset",
-    //   textDecoration: "none",
-    //   "&:hover": {
-    //     backgroundColor: COLORS.RED_MAIN,
-    //   },
-    //   [theme.breakpoints.down("sm")]: {
-    //     fontSize: "18px",
-    //     lineHeight: "24px",
-    //     padding: "6px 16px",
-    //   },
-    // },
     "& .MuiButton-root": {
       backgroundColor: COLORS.RED_MAIN,
       padding: "8px 16px",
@@ -84,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 300,
       marginTop: "16px",
       border: `${COLORS.RED_MAIN} solid 4px`,
-      boxShadow: "0px 0px 0px 1px #fff inset",
+      boxShadow: `0px 0px 0px 1px ${COLORS.WHITE_MAIN} inset`,
       textDecoration: "none",
       "&:hover": {
         backgroundColor: COLORS.RED_MAIN,

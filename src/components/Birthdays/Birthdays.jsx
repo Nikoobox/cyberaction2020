@@ -118,6 +118,7 @@ const useStyles = makeStyles((theme) => ({
 
 const settings = {
   dots: true,
+  arrows: false,
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -193,14 +194,6 @@ const Birthdays = () => {
               {BDAY_DATA_INCLUDED.map((row, idx) => {
                 return <InfoRow data={row} key={idx} isCircleShown />;
               })}
-
-              {/* <WatchVideoButton
-                text="Видео праздника"
-                handleClick={handleClick}
-                icon={PlayIcon}
-                horizontalPadding="32px"
-                topMargin="24px"
-              /> */}
 
               <Typography className={classes.subHeader}>
                 Дополнительная информация и бронирование по номеру:
