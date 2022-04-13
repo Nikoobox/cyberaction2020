@@ -57,7 +57,6 @@ const LandingPage = () => {
   };
 
   const toggleDrawer = () => (event) => {
-    console.log("here");
     if (
       event &&
       event.type === "keydown" &&
