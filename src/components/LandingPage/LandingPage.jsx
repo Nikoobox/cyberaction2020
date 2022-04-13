@@ -73,7 +73,7 @@ const LandingPage = () => {
       <div className={classes.root}>
         <video
           className={classes.videoWrapper}
-          autoPlay
+          // autoPlay
           loop
           muted={isMuted ? true : false}
           playsInline

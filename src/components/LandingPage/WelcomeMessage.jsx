@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 
 const WelcomeMessage = ({ toggleDrawer }) => {
   const classes = useStyles();
-  console.log("toggleDrawer", toggleDrawer);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

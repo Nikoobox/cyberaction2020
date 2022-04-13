@@ -6,7 +6,7 @@ const { REACT_APP_YCLIENTS_ID } = process.env;
 const YClientBookingForm = () => {
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const formWidth = isXS ? "100%" : "500px";
-  console.log("REACT_APP_YCLIENTS_ID", REACT_APP_YCLIENTS_ID);
+
   return (
     <div style={{ height: "100vh" }}>
       <iframe

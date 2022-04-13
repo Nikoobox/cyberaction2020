@@ -19,6 +19,7 @@ import Divider from "@mui/material/Divider";
 
 import HideOnScroll from "./HideOnScroll";
 import { COLORS } from "../../theme";
+import casLogoBw from "../../media/images/cas_logo_bw.png";
 
 const pages = [
   { name: "Цены", route: "/", anchor: "price" },
@@ -168,6 +169,26 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  logoContainerWeb: {
+    display: "flex",
+    "& .logoWrapper": {
+      width: 48,
+      height: 48,
+      "& img": {
+        width: "100%",
+        height: "100%",
+      },
+    },
+    "& .text": {
+      fontSize: "22px",
+      lineHeight: "48px",
+      marginLeft: "8px",
+      // fontWeight: 600,
+      // fontFamily: `"Electrolize",sans-serif`,
+      // fontFamily: `"Open Sans",sans-serif`,
+      // fontFamily: `"Source Sans Pro",sans-serif`,
+    },
+  },
 }));
 
 const Navbar = () => {
@@ -175,7 +196,6 @@ const Navbar = () => {
   const isMD = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const classes = useStyles();
   const [drawerState, setDrawerState] = useState(false);
-  // const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const toggleDrawer = () => (event) => {
     if (
@@ -201,6 +221,7 @@ const Navbar = () => {
         <AppBar elevation={0} className={classes.root}>
           <Container maxWidth="lg">
             <Toolbar disableGutters>
+              {/* web */}
               <a
                 href="/"
                 onClick={() => {
@@ -209,8 +230,12 @@ const Navbar = () => {
                 className={classes.logo}
                 id="home"
               >
-                {/* web */}
-                CYBERACTION SAMARA
+                <div className={classes.logoContainerWeb}>
+                  <div className="logoWrapper">
+                    <img src={casLogoBw} />
+                  </div>
+                  <div className="text">CYBERACTION SAMARA</div>
+                </div>
               </a>
 
               {/* web */}
@@ -265,8 +290,6 @@ const Navbar = () => {
       </HideOnScroll>
 
       <SwipeableDrawer
-        // disableBackdropTransition={!iOS}
-        // disableDiscovery={iOS}
         classes={{ paper: classes.drawer }}
         anchor="right"
         open={drawerState}
