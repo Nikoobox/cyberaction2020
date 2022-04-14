@@ -9,8 +9,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
+import Hidden from "@mui/material/Hidden";
 import Container from "@mui/material/Container";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -33,8 +33,15 @@ const pages = [
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "16px",
+
     [theme.breakpoints.down("sm")]: {
-      paddingTop: 0,
+      paddingTop: 8,
+      paddingBottom: 8,
+      "& .text": {
+        fontSize: "22px",
+        lineHeight: "48px",
+        marginLeft: "8px",
+      },
     },
   },
   logo: {
@@ -43,10 +50,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "16px",
     display: "flex",
     textDecoration: "none",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
   },
+
   navButtonsWrapper: {
     flexGrow: 1,
     display: "flex",
@@ -80,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     "&.MuiDrawer-paper": {
       backgroundColor: COLORS.BLACK_MAIN,
-      opacity: 0.9,
+      opacity: 0.95,
       width: "100%",
     },
     "& ul": {
@@ -98,6 +103,9 @@ const useStyles = makeStyles((theme) => ({
   drawerItemWrapper: {
     padding: "16px",
     paddingLeft: "32px",
+    "&:first-of-type": {
+      paddingTop: "8px",
+    },
   },
   drawerItem: {
     color: COLORS.WHITE_MAIN,
@@ -174,19 +182,34 @@ const useStyles = makeStyles((theme) => ({
     "& .logoWrapper": {
       width: 48,
       height: 48,
+      [theme.breakpoints.down("sm")]: {
+        width: 40,
+        height: 48,
+        display: "flex",
+        alignItems: "center",
+      },
       "& img": {
         width: "100%",
-        height: "100%",
+        height: "auto",
       },
     },
     "& .text": {
       fontSize: "22px",
       lineHeight: "48px",
-      marginLeft: "8px",
-      // fontWeight: 600,
-      // fontFamily: `"Electrolize",sans-serif`,
-      // fontFamily: `"Open Sans",sans-serif`,
-      // fontFamily: `"Source Sans Pro",sans-serif`,
+      marginLeft: "16px",
+      [theme.breakpoints.down("sm")]: {
+        marginLeft: "16px",
+      },
+    },
+  },
+  logoWeb: {
+    "& a:-webkit-any-link": {
+      textDecoration: "none",
+      margin: "8px 0 8px 16px",
+      color: COLORS.WHITE_MAIN,
+      display: "block",
+      fontSize: "18px",
+      fontWeight: 300,
     },
   },
 }));
@@ -222,22 +245,24 @@ const Navbar = () => {
           <Container maxWidth="lg">
             <Toolbar disableGutters>
               {/* web */}
-              <a
-                href="/"
-                onClick={() => {
-                  scroll.scrollToTop();
-                }}
-                className={classes.logo}
-                id="home"
-              >
-                <div className={classes.logoContainerWeb}>
-                  <div className="logoWrapper">
-                    <img src={casLogoBw} />
-                  </div>
-                  <div className="text">CYBERACTION SAMARA</div>
+              <Hidden smDown>
+                <div className={classes.logoWeb}>
+                  <a
+                    href="/"
+                    onClick={() => {
+                      scroll.scrollToTop();
+                    }}
+                    id="home"
+                  >
+                    <div className={classes.logoContainerWeb}>
+                      <div className="logoWrapper">
+                        <img src={casLogoBw} />
+                      </div>
+                      <div className="text">CYBERACTION SAMARA</div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-
+              </Hidden>
               {/* web */}
               <div className={classes.navButtonsWrapper}>
                 {pages.map((page, idx) => {
@@ -254,36 +279,50 @@ const Navbar = () => {
                   );
                 })}
               </div>
-
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  flexGrow: 1,
-                  display: { xs: "flex", md: "none" },
-                }}
-              >
-                {/* mobile */}
-                CYBERACTION SAMARA
-              </Typography>
-              <Box
-                sx={{
-                  display: { xs: "flex", md: "none" },
-                }}
-              >
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={toggleDrawer()}
-                  color="inherit"
-                  className={classes.burgerIcon}
+              {/* mobile */}
+              <Hidden smUp>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
                 >
-                  <MenuIcon />
-                </IconButton>
-              </Box>
+                  <a
+                    href="/"
+                    onClick={() => {
+                      scroll.scrollToTop();
+                    }}
+                    id="home"
+                  >
+                    <div className={classes.logoContainerWeb}>
+                      <div className="logoWrapper">
+                        <img src={casLogoBw} />
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="text">CYBERACTION SAMARA</div>
+                  <Box
+                    sx={{
+                      display: { xs: "flex", md: "none" },
+                    }}
+                  >
+                    <IconButton
+                      size="large"
+                      aria-label="account of current user"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      onClick={toggleDrawer()}
+                      color="inherit"
+                      className={classes.burgerIcon}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Box>
+                </div>
+              </Hidden>
             </Toolbar>
           </Container>
         </AppBar>
@@ -306,7 +345,7 @@ const Navbar = () => {
               width: "100%",
               display: "flex",
               justifyContent: "flex-end",
-              padding: isXS ? "8px 16px 0" : "32px 24px 16px 16px",
+              padding: isXS ? "16px 16px 0" : "32px 24px 16px 16px",
             }}
           >
             <IconButton
