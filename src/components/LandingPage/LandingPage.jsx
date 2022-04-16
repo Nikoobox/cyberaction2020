@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { VolumeUpIcon, VolumeOffIcon } from "@heroicons/react/outline";
+import React, { useState, useRef } from "react";
+import {
+  VolumeUpIcon,
+  VolumeOffIcon,
+  PlayIcon,
+  PauseIcon,
+} from "@heroicons/react/outline";
 import { makeStyles } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
@@ -21,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
     transition: "all 400ms ease 0ms",
   },
-  soundButtonWrapper: {
+  videoControlButtonsWrapper: {
     position: "absolute",
     bottom: (props) => (props.isXS ? 26 : 24),
     left: (props) => (props.isXS ? 8 : 24),
-    "& .soundButton": {
-      "& .volume-icon": {
+    "& .videoControlButton": {
+      "& .icon": {
         color: COLORS.WHITE_MAIN,
         fill: "none",
         height: 32,
@@ -42,14 +47,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LandingPage = () => {
+  const vidRef = useRef(null);
   const isXS = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const classes = useStyles({ isXS });
 
   const toggleVideoSound = () => {
     setIsMuted(!isMuted);
+  };
+
+  const togglePlay = () => {
+    if (isPlaying) {
+      vidRef.current.pause();
+    }
+    if (!isPlaying) {
+      vidRef.current.play();
+    }
+
+    return setIsPlaying(!isPlaying);
   };
 
   const onLoadedData = () => {
@@ -72,8 +90,9 @@ const LandingPage = () => {
     <>
       <div className={classes.root}>
         <video
+          ref={vidRef}
           className={classes.videoWrapper}
-          autoPlay
+          autoPlay={isPlaying}
           loop
           muted={isMuted ? true : false}
           playsInline
@@ -91,23 +110,42 @@ const LandingPage = () => {
           <Spinner />
         )}
         {isVideoLoaded && (
-          <div className={classes.soundButtonWrapper}>
+          <div className={classes.videoControlButtonsWrapper}>
             <Button
               onClick={toggleVideoSound}
-              className="soundButton"
+              className="videoControlButton"
               disableRipple
             >
-              {isMuted ? (
+              {isMuted || !isPlaying ? (
                 <SvgIcon
                   component={VolumeOffIcon}
                   viewBox="0 0 24 24"
-                  className="volume-icon"
+                  className="icon"
                 />
               ) : (
                 <SvgIcon
                   component={VolumeUpIcon}
                   viewBox="0 0 24 24"
-                  className="volume-icon"
+                  className="icon"
+                />
+              )}
+            </Button>
+            <Button
+              onClick={togglePlay}
+              className="videoControlButton"
+              disableRipple
+            >
+              {isPlaying ? (
+                <SvgIcon
+                  component={PauseIcon}
+                  viewBox="0 0 24 24"
+                  className="icon"
+                />
+              ) : (
+                <SvgIcon
+                  component={PlayIcon}
+                  viewBox="0 0 24 24"
+                  className="icon"
                 />
               )}
             </Button>

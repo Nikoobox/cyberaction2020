@@ -245,7 +245,7 @@ const Navbar = () => {
           <Container maxWidth="lg">
             <Toolbar disableGutters>
               {/* web */}
-              <Hidden smDown>
+              <Hidden mdDown>
                 <div className={classes.logoWeb}>
                   <a
                     href="/"
@@ -280,7 +280,7 @@ const Navbar = () => {
                 })}
               </div>
               {/* mobile */}
-              <Hidden smUp>
+              <Hidden mdUp>
                 <div
                   style={{
                     display: "flex",
@@ -306,7 +306,7 @@ const Navbar = () => {
                   <div className="text">CYBERACTION SAMARA</div>
                   <Box
                     sx={{
-                      display: { xs: "flex", md: "none" },
+                      display: { xs: "flex", lg: "none" },
                     }}
                   >
                     <IconButton
