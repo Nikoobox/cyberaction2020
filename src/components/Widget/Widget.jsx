@@ -31,18 +31,6 @@ const actions = [
   {
     icon: (
       <SvgIcon
-        component={PhoneIcon}
-        viewBox="0 0 24 24"
-        className="item-icon"
-      />
-    ),
-    name: "Позвонить",
-    operation: "call",
-    link: "tel:+7927 898-9945",
-  },
-  {
-    icon: (
-      <SvgIcon
         component={CalendarIcon}
         viewBox="0 0 24 24"
         className="item-icon"
@@ -51,6 +39,18 @@ const actions = [
     name: "Забронировать",
     operation: "booking",
     link: null,
+  },
+  {
+    icon: (
+      <SvgIcon
+        component={PhoneIcon}
+        viewBox="0 0 24 24"
+        className="item-icon"
+      />
+    ),
+    name: "Позвонить",
+    operation: "call",
+    link: "tel:+7927 898-9945",
   },
   {
     icon: (
