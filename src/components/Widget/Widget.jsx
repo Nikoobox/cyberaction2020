@@ -38,6 +38,7 @@ const actions = [
     ),
     name: "Забронировать",
     operation: "booking",
+    link: null,
   },
   {
     icon: (
