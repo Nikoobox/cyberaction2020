@@ -11,7 +11,7 @@ import { makeStyles } from "@mui/styles";
 import Divider from "@mui/material/Divider";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
-// import Hidden from "@mui/material/Hidden";
+import Hidden from "@mui/material/Hidden";
 
 import { BIRTHDAY_IMAGES } from "../DataImports/index";
 import { COLORS } from "../../theme";
@@ -123,25 +123,25 @@ const useStyles = makeStyles((theme) => ({
   bdayCardsContainer: {
     marginTop: 48,
     [theme.breakpoints.down("sm")]: {
-      marginTop: 64,
+      marginTop: 80,
     },
   },
-  // sliderContainer: {
-  //   [theme.breakpoints.down("sm")]: {
-  //     // flexDirection: "column",
-  //     display: "grid",
-  //     gridAutoColumns: "320px",
-  //     gridAutoFlow: "column",
-  //     gridColumnGap: 8,
-  //     overflowX: "auto",
-  //     scrollSnapType: "x proximity",
-  //   },
-  // },
-  // sliderItem: {
-  //   [theme.breakpoints.down("sm")]: {
-  //     scrollSnapAlign: "center",
-  //   },
-  // },
+  sliderContainer: {
+    height: "250px",
+    display: "grid",
+    gridAutoColumns: "250px",
+    gridAutoFlow: "column",
+    gridColumnGap: 8,
+    overflowX: "auto",
+    scrollSnapType: "x proximity",
+  },
+  sliderItem: {
+    scrollSnapAlign: "center",
+    paddingRight: "16px",
+    "&:last-child": {
+      paddingRight: "0",
+    },
+  },
 }));
 
 const settings = {
@@ -274,31 +274,34 @@ const Birthdays = () => {
           </div>
 
           <div className={classes.bdayCardsContainer}>
-            <Grid
-              container
-              rowSpacing={8}
-              columnSpacing={8}
-              className={classes.sliderContainer}
-            >
-              {videosForBday.map((videoForBday, idx) => (
-                // <Hidden mdDown>
-                <Grid
-                  item
-                  xs={12}
-                  md={4}
-                  key={idx}
-                  className={classes.sliderItem}
-                >
-                  <VideoWithPreview
-                    video={videoForBday.video}
-                    handlePlayClick={handlePlayClick}
-                    title={videoForBday.title}
-                    image={videoForBday.image}
-                  />
-                </Grid>
-                // </Hidden>
-              ))}
-            </Grid>
+            <Hidden smDown>
+              <Grid container rowSpacing={8} columnSpacing={8}>
+                {videosForBday.map((videoForBday, idx) => (
+                  <Grid item xs={12} md={4} key={idx}>
+                    <VideoWithPreview
+                      video={videoForBday.video}
+                      handlePlayClick={handlePlayClick}
+                      title={videoForBday.title}
+                      image={videoForBday.image}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Hidden>
+            <Hidden smUp>
+              <div className={classes.sliderContainer}>
+                {videosForBday.map((videoForBday, idx) => (
+                  <div key={idx} className={classes.sliderItem}>
+                    <VideoWithPreview
+                      video={videoForBday.video}
+                      handlePlayClick={handlePlayClick}
+                      title={videoForBday.title}
+                      image={videoForBday.image}
+                    />
+                  </div>
+                ))}
+              </div>
+            </Hidden>
           </div>
         </Section>
       </motion.div>
