@@ -12,7 +12,7 @@ import pic7 from "../../media/images/pic7.jpeg";
 import pic8 from "../../media/images/pic8.jpg";
 import pic9 from "../../media/images/pic9.jpg";
 import bdayPic1 from "../../media/images/bday/imgbday1.jpg";
-import bdayPic2 from "../../media/images/bday/imgbday2.jpg";
+// import bdayPic2 from "../../media/images/bday/imgbday2.jpg";
 import bdayPic3 from "../../media/images/bday/imgbday3.jpg";
 import bdayPic4 from "../../media/images/bday/imgbday4.jpg";
 import bdayPic5 from "../../media/images/bday/imgbday5.jpg";
@@ -79,7 +79,7 @@ import constructionVideo from "../../media/images/games/construction/constructio
 export const IMAGES = [pic1, pic2, pic3, pic5, pic6, pic7, pic8, pic9];
 export const BIRTHDAY_IMAGES = [
   bdayPic1,
-  bdayPic2,
+  // bdayPic2,
   bdayPic3,
   bdayPic4,
   bdayPic5,

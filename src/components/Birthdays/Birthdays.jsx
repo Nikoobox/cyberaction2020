@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { PhoneIcon } from "@heroicons/react/outline";
+import { CakeIcon } from "@heroicons/react/outline";
 
 import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
 import { makeStyles } from "@mui/styles";
 import Divider from "@mui/material/Divider";
 import CardMedia from "@mui/material/CardMedia";
-import { CakeIcon } from "@heroicons/react/outline";
-import { PhoneIcon, PlayIcon } from "@heroicons/react/outline";
+import Grid from "@mui/material/Grid";
+// import Hidden from "@mui/material/Hidden";
 
 import { BIRTHDAY_IMAGES } from "../DataImports/index";
 import { COLORS } from "../../theme";
@@ -17,13 +19,17 @@ import Section from "../Section/Section";
 import InfoRow from "../InfoRow/InfoRow";
 import bdayVideo from "../../media/bdayvideotrimed.mp4";
 import bdayVideo2 from "../../media/bdayvideo2.mp4";
+import roomOverview from "../../media/room_overview.mp4";
+import forBday1 from "../../media/forBday1.jpg";
+import forBday2 from "../../media/forBday2.jpg";
+import forBdayRoomOverview from "../../media/forBdayRoomOverview.jpg";
 import MyModal from "../MyModal/MyModal";
 import {
   BDAY_DATA,
   BDAY_DATA_EXTRA,
   BDAY_DATA_INCLUDED,
 } from "../DataImports/index";
-import WatchVideoButton from "../WatchVideoButton/WatchVideoButton";
+import VideoWithPreview from "./VideoWithPreview";
 
 const useStyles = makeStyles((theme) => ({
   root: { color: COLORS.WHITE_MAIN },
@@ -114,6 +120,28 @@ const useStyles = makeStyles((theme) => ({
       fill: "none",
     },
   },
+  bdayCardsContainer: {
+    marginTop: 48,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 64,
+    },
+  },
+  // sliderContainer: {
+  //   [theme.breakpoints.down("sm")]: {
+  //     // flexDirection: "column",
+  //     display: "grid",
+  //     gridAutoColumns: "320px",
+  //     gridAutoFlow: "column",
+  //     gridColumnGap: 8,
+  //     overflowX: "auto",
+  //     scrollSnapType: "x proximity",
+  //   },
+  // },
+  // sliderItem: {
+  //   [theme.breakpoints.down("sm")]: {
+  //     scrollSnapAlign: "center",
+  //   },
+  // },
 }));
 
 const settings = {
@@ -139,6 +167,12 @@ const settings = {
   ],
 };
 
+const videosForBday = [
+  { title: "Обзор комнаты", video: roomOverview, image: forBdayRoomOverview },
+  { title: "Видео праздника", video: bdayVideo, image: forBday1 },
+  { title: "Видео праздника", video: bdayVideo2, image: forBday2 },
+];
+
 const Birthdays = () => {
   const [open, setOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState(bdayVideo);
@@ -149,7 +183,7 @@ const Birthdays = () => {
     threshold: 0.2,
   });
 
-  const handleClick = (videoToWatch) => {
+  const handlePlayClick = (videoToWatch) => {
     setActiveVideo(videoToWatch);
     setOpen(!open);
   };
@@ -235,23 +269,36 @@ const Birthdays = () => {
                   justifyContent: "center",
                   alignItems: "center",
                 }}
-              >
-                <WatchVideoButton
-                  text="Видео праздника-1"
-                  handleClick={() => handleClick(bdayVideo)}
-                  icon={PlayIcon}
-                  horizontalPadding="32px"
-                  // topMargin="24px"
-                />
-                <WatchVideoButton
-                  text="Видео праздника-2"
-                  handleClick={() => handleClick(bdayVideo2)}
-                  icon={PlayIcon}
-                  horizontalPadding="32px"
-                  topMargin="8px"
-                />
-              </div>
+              ></div>
             </div>
+          </div>
+
+          <div className={classes.bdayCardsContainer}>
+            <Grid
+              container
+              rowSpacing={8}
+              columnSpacing={8}
+              className={classes.sliderContainer}
+            >
+              {videosForBday.map((videoForBday, idx) => (
+                // <Hidden mdDown>
+                <Grid
+                  item
+                  xs={12}
+                  md={4}
+                  key={idx}
+                  className={classes.sliderItem}
+                >
+                  <VideoWithPreview
+                    video={videoForBday.video}
+                    handlePlayClick={handlePlayClick}
+                    title={videoForBday.title}
+                    image={videoForBday.image}
+                  />
+                </Grid>
+                // </Hidden>
+              ))}
+            </Grid>
           </div>
         </Section>
       </motion.div>
