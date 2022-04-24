@@ -93,11 +93,6 @@ const WelcomeMessage = ({ toggleDrawer }) => {
           <Typography className={classes.body}>
             Уникальный командный шутер
           </Typography>
-          {/* <div className={classes.buttonWrapper}>
-            <a href="//w327499.yclients.com/widgetJS" className="ms_booking">
-              Забронировать
-            </a>
-          </div> */}
           <div className={classes.buttonWrapper}>
             <Button onClick={toggleDrawer()}> Забронировать</Button>
           </div>
