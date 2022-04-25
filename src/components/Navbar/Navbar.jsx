@@ -33,7 +33,6 @@ const pages = [
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "16px",
-
     [theme.breakpoints.down("sm")]: {
       paddingTop: 8,
       paddingBottom: 8,

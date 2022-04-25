@@ -24,8 +24,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
-        <CssBaseline />
         <Widget toggleDrawer={toggleDrawer} isOpenDrawer={isOpenDrawer} />
         <Navbar />
         <Routes>

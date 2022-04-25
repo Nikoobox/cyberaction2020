@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 8,
     transition: "all 0.2s ease",
     "&:hover": {
-      // color: COLORS.GREEN_MAIN,
       cursor: "pointer",
       "& .MuiSvgIcon-root": {
         color: COLORS.GREEN_MAIN,
