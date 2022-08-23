@@ -229,7 +229,7 @@ const Birthdays = () => {
                 return <InfoRow data={row} key={idx} isCircleShown />;
               })}
 
-              <Typography className={classes.subHeader}>
+              {/* <Typography className={classes.subHeader}>
                 Дополнительная информация и бронирование по номеру:
               </Typography>
               <a
@@ -245,7 +245,7 @@ const Birthdays = () => {
                   className="icon"
                 />
                 <div>+7 (927) 741-7246</div>
-              </a>
+              </a> */}
 
               <Divider variant="fullWidth" className={classes.divider} />
               {BDAY_DATA_EXTRA.map((row, idx) => {
