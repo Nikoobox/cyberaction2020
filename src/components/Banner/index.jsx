@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
 
 const BANNER_DATA = {
   header: "Продается Арена Виртуальной Реальности!",
-  body: "* Более подробная информация о продаже бизнеса по ссылке ниже либо по телефону",
+  body: "* Более подробная информация о продаже бизнеса ниже по ссылке либо по телефону",
   avitoLink:
     "https://www.avito.ru/samara/gotoviy_biznes/arena_virtualnoy_realnosti_2814271732",
 };
