@@ -7,6 +7,7 @@ import Birthdays from "../Birthdays/Birthdays";
 import Faq from "../Faq/Faq";
 import Gallery from "../Gallery/Gallery";
 import Footer from "../Footer/Footer";
+import Banner from "../Banner";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -17,6 +18,7 @@ const Splash = () => {
 
   return (
     <>
+      <Banner />
       <LandingPage />
       <Rules />
       <Birthdays />
